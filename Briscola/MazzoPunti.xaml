@@ -1,0 +1,36 @@
+﻿<Window x:Class="Briscola.MazzoPunti"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Briscola"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MazzoPunti" Height="720" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" BorderThickness="7" BorderBrush="DarkGreen" Background="Wheat">
+    <Canvas>
+        <Button
+            Name="btnIndietro"
+            Background="Green"
+            Foreground="Wheat"
+            BorderBrush="{x:Null}"
+        Style="{StaticResource MaterialDesignFloatingActionButton}"
+        ToolTip="MaterialDesignFloatingActionButton"
+            Height="55"
+            Width="55"
+            Canvas.Left="11"
+            Canvas.Top="11" Click="btnIndietro_Click">
+            <materialDesign:PackIcon
+            Kind="ArrowLeft"
+            Height="45"
+            Width="45" />
+        </Button>
+        <Border Canvas.Top="117" BorderBrush="Gray" BorderThickness="5" Canvas.Left="10" Width="1246" CornerRadius="15" Background="#FFDCC9A7">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled"  Canvas.Top="117" Height="551" Width="1220" Margin="0,0,0,0">
+                <StackPanel Name="stk"  Canvas.Left="10" Canvas.Top="91"  Orientation="Horizontal"/>
+            </ScrollViewer>
+        </Border>
+        <Label Name="lblNomeGiocatore" Content="Nome Giocatore" FontSize="30" FontWeight="Bold" Canvas.Left="87" Canvas.Top="13"/>
+        <Label Content="Punti: " FontSize="30" FontWeight="Bold" Canvas.Left="1068" Canvas.Top="13"/>
+        <Label Name="lblPunti" Content="00" FontSize="30" FontWeight="Bold" Foreground="Red" Canvas.Left="1166" Canvas.Top="13"/>
+    </Canvas>
+</Window>
