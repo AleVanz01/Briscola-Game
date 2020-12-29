@@ -1,4 +1,4 @@
-﻿using Briskola;
+﻿using Briscola.Models;
 using MessageBox;
 using System;
 using System.Collections.Generic;
@@ -19,13 +19,17 @@ namespace Briscola
     /// </summary>
     public partial class Login : Window
     {
+        private OleDbConnection _connection;
+        private DataTable _utenti;
+        private List<object> _controlli;
+
         public Login(OleDbConnection connection)
         {
             InitializeComponent();
-            utenti = new DataTable("Utenti");
+            _utenti = new DataTable("Utenti");
             OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM GIOCATORI", connection);
-            adapter.Fill(utenti);
-            this.connection = connection;
+            adapter.Fill(_utenti);
+            this._connection = connection;
 
             if (File.Exists(Environment.CurrentDirectory + "\\login.txt"))
             {
@@ -39,12 +43,12 @@ namespace Briscola
                 File.Delete(Environment.CurrentDirectory + "\\Login.txt");
             }
         }
-        OleDbConnection connection;
-        private DataTable utenti;
+
         public Giocatore Giocatore { get; private set; }
+
         public bool Registrazione { get; private set; }
-        public bool Logged { get; private set; }
-        List<object> controlli;
+
+        public bool Loggato { get; private set; }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +69,7 @@ namespace Briscola
                             writer.Close();
                             File.Encrypt(Environment.CurrentDirectory + "\\Login.txt");
                         }
-                        Logged = true;
+                        Loggato = true;
                         DialogResult = true;
                         Close();
                     }
@@ -100,21 +104,21 @@ namespace Briscola
                     case 2: comboBox = CreaComboBox(comboBox, "Età"); comboBox.Name = "cbEta"; stp1.Children.Add(comboBox); break;
                 }
             }
-            controlli = new List<object>();
+            _controlli = new List<object>();
             for (int i = 0; i < stp1.Children.Count; i++)
             {
                 if (i > 1 && i < 5)
                     continue;
                 else
-                    controlli.Add(stp1.Children[i]);
+                    _controlli.Add(stp1.Children[i]);
             }
-            controlli.Add(stp1.Children[2]);
-            controlli.Add(stp1.Children[3]);
-            controlli.Add(stp1.Children[4]);
+            _controlli.Add(stp1.Children[2]);
+            _controlli.Add(stp1.Children[3]);
+            _controlli.Add(stp1.Children[4]);
             stp1.Children.Clear();
 
-            for (int i = 0; i < controlli.Count; i++)
-                stp1.Children.Add((UIElement)controlli[i]);
+            for (int i = 0; i < _controlli.Count; i++)
+                stp1.Children.Add((UIElement)_controlli[i]);
 
             txtLogin.Text = "Registrati";
             stpLogin.Width += 30;
@@ -128,7 +132,7 @@ namespace Briscola
         bool CheckRegistrazione(string[] dati, out string errore)
         {
             errore = "";
-            foreach (DataRow item in utenti.Rows)
+            foreach (DataRow item in _utenti.Rows)
             {
                 if (item[0].ToString() == dati[0])
                 {
@@ -138,9 +142,9 @@ namespace Briscola
 
             }
 
-            connection.Open();
+            _connection.Open();
             string sqlCmd = string.Format($"INSERT INTO GIOCATORI VALUES ('{dati[0]}','{dati[1]}','{dati[2]}','{dati[3]}','{dati[4]}')");
-            OleDbCommand cmd = new OleDbCommand(sqlCmd, connection);
+            OleDbCommand cmd = new OleDbCommand(sqlCmd, _connection);
 
             try
             {
@@ -154,7 +158,7 @@ namespace Briscola
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
 
         }
@@ -167,11 +171,11 @@ namespace Briscola
             PasswordBox p1;
             ComboBox c1;
             int j = 0;
-            for (int i = 0; i < controlli.Count; i++)
+            for (int i = 0; i < _controlli.Count; i++)
             {
-                if (controlli[i] is StackPanel)
+                if (_controlli[i] is StackPanel)
                 {
-                    StackPanel s1 = controlli[i] as StackPanel;
+                    StackPanel s1 = _controlli[i] as StackPanel;
                     if (s1.Children[0] is TextBox)
                     {
                         t1 = s1.Children[0] as TextBox;
@@ -185,15 +189,15 @@ namespace Briscola
                         j++;
                     }
                 }
-                else if (controlli[i] is TextBox)
+                else if (_controlli[i] is TextBox)
                 {
-                    t1 = controlli[i] as TextBox;
+                    t1 = _controlli[i] as TextBox;
                     dati[j] = t1.Text;
                     j++;
                 }
-                else if (controlli[i] is ComboBox)
+                else if (_controlli[i] is ComboBox)
                 {
-                    c1 = controlli[i] as ComboBox;
+                    c1 = _controlli[i] as ComboBox;
                     dati[j] = c1.Text;
                     j++;
                 }
@@ -206,7 +210,7 @@ namespace Briscola
         {
             errore = "";
             bool trovato = false;
-            foreach (DataRow item in utenti.Rows)
+            foreach (DataRow item in _utenti.Rows)
             {
                 if (item[0].ToString() == username && item[1].ToString() == psw)
                 {
@@ -271,10 +275,7 @@ namespace Briscola
         }
         #endregion
 
-        private void btnChiudi_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void btnChiudi_Click(object sender, RoutedEventArgs e) => Close();
 
         private void txtUsername_LostFocus(object sender, RoutedEventArgs e)
         {
