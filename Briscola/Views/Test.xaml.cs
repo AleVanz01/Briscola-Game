@@ -12,9 +12,9 @@ namespace Briscola
     /// <summary>
     /// Logica di interazione per example.xaml
     /// </summary>
-    public partial class example : Window
+    public partial class Test : Window
     {
-        public example()
+        public Test()
         {
             InitializeComponent();
 
@@ -22,22 +22,26 @@ namespace Briscola
             /*img1.Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteTrevisane\\AssoBastoni.png")));
             img1.RenderTransform = new RotateTransform();*/
 
-            Button button = new Button();
-            button.Height = 28;
-            button.Width = 58;
-            button.HorizontalAlignment = HorizontalAlignment.Center;
-            button.VerticalAlignment = VerticalAlignment.Center;
-            button.Content = "Button";
+            Button button = new Button
+            {
+                Height = 28,
+                Width = 58,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Content = "Button"
+            };
             canvas1.Children.Add(button);
 
             button.Name = "button";
 
 
-            Rectangle rectangle = new Rectangle();
-            rectangle.Width = 100;
-            rectangle.Height = 100;
-            rectangle.Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteTrevisane\\AssoBastoni.png")));
-            rectangle.Stroke = new SolidColorBrush(Colors.Black);
+            Rectangle rectangle = new Rectangle
+            {
+                Width = 100,
+                Height = 100,
+                Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteTrevisane\\AssoBastoni.png"))),
+                Stroke = new SolidColorBrush(Colors.Black)
+            };
             Canvas.SetLeft(rectangle, 100);
             Canvas.SetTop(rectangle, 100);
             canvas1.Children.Add(rectangle);
@@ -90,10 +94,7 @@ namespace Briscola
 
             button.Click += Button_Click;
 
-            void Button_Click(object sender, RoutedEventArgs e)
-            {
-                s.Begin(rectangle);
-            }
+            void Button_Click(object sender, RoutedEventArgs e) => s.Begin(rectangle);
             /*img2.Stretch = Stretch.Uniform;
             img2.Source = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteTrevisane\\AssoBastoni.png"));
                 img2.RenderTransform = new TranslateTransform(50,25);*/
@@ -141,7 +142,7 @@ namespace Briscola
     img1.Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "Briscola\\bin\\Debug\\Resources\\CarteTrevisane\\AssoBastoni.png")));
 }*/
 
-        void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             RotateTransform rt = new RotateTransform();
             DoubleAnimation rotateAnimation = new DoubleAnimation(0, 90, new Duration(TimeSpan.FromSeconds(5)));
