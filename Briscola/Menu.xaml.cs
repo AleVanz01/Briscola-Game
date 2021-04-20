@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Briscola.Models;
+using MessageBox;
+using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Briskola;
-using MessageBox;
 
 namespace Briscola
 {
@@ -68,7 +68,7 @@ namespace Briscola
                     else
                         registrato = false;
                 }
-                if (login.Logged)
+                if (login.Loggato)
                 {
                     giocatore = login.Giocatore;
                     imgAdmin.Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\utente.png")));

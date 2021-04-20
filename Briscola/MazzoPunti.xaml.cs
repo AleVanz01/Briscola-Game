@@ -1,4 +1,4 @@
-﻿using Briskola;
+﻿using Briscola.Models;
 using System;
 using System.Windows;
 using System.Windows.Media;
