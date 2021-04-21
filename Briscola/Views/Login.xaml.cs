@@ -19,10 +19,13 @@ namespace Briscola
     /// </summary>
     public partial class Login : Window
     {
-        private OleDbConnection _connection;
-        private DataTable _utenti;
+        private readonly OleDbConnection _connection;
+        private readonly DataTable _utenti;
         private List<object> _controlli;
+        public Login()
+        {
 
+        }
         public Login(OleDbConnection connection)
         {
             InitializeComponent();
@@ -53,7 +56,9 @@ namespace Briscola
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             if (txtUsername.Text == "" || txtPsw.Password == "")
+            {
                 MsgBox.Show("Attenzione", "Inserire tutti i campi obbligatori", MessageBoxButton.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 if (txtLogin.Text == "Login")
@@ -74,7 +79,9 @@ namespace Briscola
                         Close();
                     }
                     else
+                    {
                         MsgBox.Show("Attenzione", "Accesso Fallito: " + errore, MessageBoxButton.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
@@ -86,7 +93,9 @@ namespace Briscola
                         Close();
                     }
                     else
+                    {
                         MsgBox.Show("Attenzione", "Registrazione fallita: " + errore, MessageBoxButton.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
@@ -99,18 +108,34 @@ namespace Briscola
             {
                 switch (i)
                 {
-                    case 0: textBox = CreaTextbox(textBox, "Cognome"); textBox.Name = "txtCognome"; stp1.Children.Add(textBox); break;
-                    case 1: textBox = CreaTextbox(textBox, "Nome"); textBox.Name = "txtNome"; stp1.Children.Add(textBox); break;
-                    case 2: comboBox = CreaComboBox(comboBox, "Età"); comboBox.Name = "cbEta"; stp1.Children.Add(comboBox); break;
+                    case 0:
+                        textBox = CreaTextbox(textBox, "Cognome");
+                        textBox.Name = "txtCognome";
+                        stp1.Children.Add(textBox);
+                        break;
+                    case 1:
+                        textBox = CreaTextbox(textBox, "Nome");
+                        textBox.Name = "txtNome";
+                        stp1.Children.Add(textBox);
+                        break;
+                    case 2:
+                        comboBox = CreaComboBox(comboBox, "Età");
+                        comboBox.Name = "cbEta";
+                        stp1.Children.Add(comboBox);
+                        break;
                 }
             }
             _controlli = new List<object>();
             for (int i = 0; i < stp1.Children.Count; i++)
             {
                 if (i > 1 && i < 5)
+                {
                     continue;
+                }
                 else
+                {
                     _controlli.Add(stp1.Children[i]);
+                }
             }
             _controlli.Add(stp1.Children[2]);
             _controlli.Add(stp1.Children[3]);
@@ -118,7 +143,9 @@ namespace Briscola
             stp1.Children.Clear();
 
             for (int i = 0; i < _controlli.Count; i++)
+            {
                 stp1.Children.Add((UIElement)_controlli[i]);
+            }
 
             txtLogin.Text = "Registrati";
             stpLogin.Width += 30;
@@ -129,7 +156,7 @@ namespace Briscola
             Top -= 150;
         }
 
-        bool CheckRegistrazione(string[] dati, out string errore)
+        private bool CheckRegistrazione(string[] dati, out string errore)
         {
             errore = "";
             foreach (DataRow item in _utenti.Rows)
@@ -163,7 +190,7 @@ namespace Briscola
 
         }
 
-        string[] GetDataTextBox()
+        private string[] GetDataTextBox()
         {
             string[] dati = new string[5];
 
@@ -206,7 +233,7 @@ namespace Briscola
             return dati;
         }
         #endregion
-        bool CheckLogin(string username, string psw, out string errore)
+        private bool CheckLogin(string username, string psw, out string errore)
         {
             errore = "";
             bool trovato = false;
@@ -220,20 +247,26 @@ namespace Briscola
                 else
                 {
                     if (item[1].ToString() == psw)
+                    {
                         errore = "L'username inserito non è corretto: Riprovare";
+                    }
                     else
+                    {
                         errore = "L'username e la password inseriti non sono corretti: Riprovare.";
+                    }
                 }
             }
             return trovato;
         }
 
         #region Creazione COMBOBOX
-        ComboBox CreaComboBox(ComboBox c, string testo)
+        private ComboBox CreaComboBox(ComboBox c, string testo)
         {
             List<int> rangeEta = new List<int>();
             for (int i = 0; i < 99; i++)
+            {
                 rangeEta.Add(i + 1);
+            }
 
             StringBuilder builder = new StringBuilder();
             builder.Append("<ComboBox xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' Margin='20' ");
@@ -251,7 +284,7 @@ namespace Briscola
         }
         #endregion
         #region Creazione TEXTBOX   
-        TextBox CreaTextbox(TextBox t, string testo)
+        private TextBox CreaTextbox(TextBox t, string testo)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("<TextBox xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' ");
@@ -271,7 +304,9 @@ namespace Briscola
         private void txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!char.IsLetter(e.Text[0]))
+            {
                 e.Handled = true;
+            }
         }
         #endregion
 
@@ -280,17 +315,25 @@ namespace Briscola
         private void txtUsername_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtUsername.Text == "")
+            {
                 hintUsername.Foreground = Brushes.Red;
+            }
             else
+            {
                 hintUsername.Foreground = Brushes.Black;
+            }
         }
 
         private void txtPsw_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtPsw.Password == "")
+            {
                 hintPsw.Foreground = Brushes.Red;
+            }
             else
+            {
                 hintPsw.Foreground = Brushes.Black;
+            }
         }
     }
 }

@@ -78,27 +78,27 @@ namespace Briscola
             }
         }
 
-        bool IsC1Selected = false;
-        bool IsC2Selected = false;
-        bool IsC3Selected = false;
-        bool lanciata = false;
-        bool turnoG1 = false;
-        bool turnoPrimoG1 = false;
-        int tempoCpu;
-        int cartePescate;
-        int numeroTurno;
-        int posizionePrecedenteCarta; //Salva la posizione/angolo con cui è stata buttata l'altra carta in tavola
-        int cartaLanciataG1;
-        int cartaLanciataCpu;
-        Giocatore giocatore;
-        Partita partita;
-        private List<Carta> mazzoTavola;
-        DispatcherTimer timer;
-        Point posCartaGiocataG1;
-        Point posCartaGiocataCpu;
-        List<Button> carte;
-        Button cartaGiocataG1;
-        Button cartaGiocataCpu;
+        private bool IsC1Selected = false;
+        private bool IsC2Selected = false;
+        private bool IsC3Selected = false;
+        private bool lanciata = false;
+        private bool turnoG1 = false;
+        private bool turnoPrimoG1 = false;
+        private int tempoCpu;
+        private int cartePescate;
+        private int numeroTurno;
+        private int posizionePrecedenteCarta; //Salva la posizione/angolo con cui è stata buttata l'altra carta in tavola
+        private int cartaLanciataG1;
+        private int cartaLanciataCpu;
+        private readonly Giocatore giocatore;
+        private readonly Partita partita;
+        private readonly List<Carta> mazzoTavola;
+        private DispatcherTimer timer;
+        private Point posCartaGiocataG1;
+        private Point posCartaGiocataCpu;
+        private List<Button> carte;
+        private Button cartaGiocataG1;
+        private Button cartaGiocataCpu;
 
         #region CREAZIONE CARTE
         /// <summary>
@@ -149,7 +149,7 @@ namespace Briscola
                     }
                     Canvas.SetTop(carte[i], 0);
                 }
-                cnvMain.Children.Add(carte[i]);
+                gridMain.Children.Add(carte[i]);
             }
         }
         #endregion
@@ -157,14 +157,18 @@ namespace Briscola
         /// Carica le risorse per la partita
         /// </summary>
         /// <param name="tipoCarte"></param>
-        void LoadResources(string tipoCarte)
+        private void LoadResources(string tipoCarte)
         {
             string path;
-            cnvMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
             if (tipoCarte == "Trevisane")
+            {
                 path = Environment.CurrentDirectory + "\\Resources\\CarteTrevisane";
+            }
             else
+            {
                 path = Environment.CurrentDirectory + "\\Resources\\CarteNapoletane";
+            }
 
             cartaMazzo.Background = new ImageBrush(new BitmapImage(new Uri(path + "\\Retro.png")));
             carte[3].Background = new ImageBrush(new BitmapImage(new Uri(path + "\\RetroMeta.png")));
@@ -252,7 +256,10 @@ namespace Briscola
                 gbCpu.IsEnabled = false;
                 gbGiocatore1.IsEnabled = true;
                 if (turnoPrimoG1)
+                {
                     txtGioca.Text = "PESCA";
+                }
+
                 btnGioca.Visibility = Visibility.Hidden;
             }
         }
@@ -260,12 +267,14 @@ namespace Briscola
         /// <summary>
         /// Metodo per il turno di CPU
         /// </summary>
-        void TurnoCpu()
+        private void TurnoCpu()
         {
             gbCpu.IsEnabled = true;
-            timer = new DispatcherTimer();
-            timer.IsEnabled = true;
-            timer.Interval = TimeSpan.FromSeconds(2);
+            timer = new DispatcherTimer
+            {
+                IsEnabled = true,
+                Interval = TimeSpan.FromSeconds(2)
+            };
             timer.Tick += Timer_Tick;
             tempoCpu = 0;
             timer.Start();
@@ -278,7 +287,7 @@ namespace Briscola
         /// <param name="left"></param>
         /// <param name="top"></param>
         /// <param name="mezza"></param>
-        void LanciaCarta(Button bottone)
+        private void LanciaCarta(Button bottone)
         {
             int num;
             do
@@ -328,10 +337,11 @@ namespace Briscola
                 Canvas.SetZIndex(bottone, 5);
             }
         }
+
         /// <summary>
         /// Pesca le ultime 2 carte dalla tavola, compresa la briscola
         /// </summary>
-        void PescaUltimeCarte(Button b, Carta cartaPescata, double ToX, double ToY, bool cpu = false)
+        private void PescaUltimeCarte(Button b, Carta cartaPescata, double ToX, double ToY, bool cpu = false)
         {
 
         }
@@ -368,7 +378,9 @@ namespace Briscola
                     cartaMazzo.Visibility = Visibility.Collapsed;
                 }
                 else if (partita.Mazzo.Count == 1)
+                {
                     CartaBriscola.Visibility = Visibility.Collapsed;
+                }
 
                 b.Height = 180;
                 Canvas.SetTop(b, 0);
@@ -388,14 +400,17 @@ namespace Briscola
                     CartaBriscola.Visibility = Visibility.Collapsed;
                 }
                 else
+                {
                     b.Background = new ImageBrush(new BitmapImage(new Uri(cartaPescata.Img)));
+                }
             }
         }
+
         /// <summary>
         /// Assegna le carte in tavola al mazzo di punti del giocatore che ha vinto la mano
         /// </summary>
         /// <param name="winner">Giocatore che ha vinto la mano</param>
-        void AssegnaCartePunti(Giocatore winner)
+        private void AssegnaCartePunti(Giocatore winner)
         {
             DoubleAnimation animation = new DoubleAnimation(0, TimeSpan.FromMilliseconds(600));
             DoubleAnimation animation2 = new DoubleAnimation(0, TimeSpan.FromMilliseconds(600));
@@ -425,7 +440,7 @@ namespace Briscola
         /// <summary>
         /// Pulisce il tavolo, togliendo le carte dal mazzo e pescando le carte ai giocatori
         /// </summary>
-        void PulisciTavola()
+        private void PulisciTavola()
         {
             //se ultimo turno devo pescare le 2 carte in tavola
             if (partita.Mazzo.Count > 0)
@@ -561,7 +576,7 @@ namespace Briscola
         /// <summary>
         /// Deseleziona tutto dopo ogni turno
         /// </summary>
-        void AzzeraTurno()
+        private void AzzeraTurno()
         {
             IsC1Selected = false;
             IsC2Selected = false;
@@ -668,7 +683,9 @@ namespace Briscola
                 btnPuntiCpu.Text = partita.Giocatori.Find(x => x.Username == Partita.CPU1).Punti.ToString();*/
             }
             else
+            {
                 partita.ConfrontaVincitore();
+            }
         }
 
         /// <summary>
@@ -737,7 +754,9 @@ namespace Briscola
         private void TextBlock_Loaded(object sender, RoutedEventArgs e)
         {
             if (txtG1.Text.Length > 10)
+            {
                 txtG1.FontSize = 33;
+            }
         }
 
         /// <summary>
