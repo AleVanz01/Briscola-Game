@@ -1,83 +1,317 @@
-﻿<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Briscola"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Briscola.Menu"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        x:Class="Briscola.Menu"
         mc:Ignorable="d"
-        Title="Menu"  Width="1920" Height="1060"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized">
+        Title="Menu"
+        Width="1920"
+        Height="1060"
+        WindowStartupLocation="CenterScreen"
+        Background="{Binding ImgSfondo}"
+        SizeChanged="Window_SizeChanged"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowState="Maximized">
+
+    <intr:Interaction.Triggers>
+        <intr:EventTrigger EventName="Loaded">
+            <intr:InvokeCommandAction Command="{Binding WindowLoadedCommand}" />
+        </intr:EventTrigger>
+    </intr:Interaction.Triggers>
 
     <Canvas Name="cnvMain">
-        <Border BorderBrush="#FF004D0B" BorderThickness="15" CornerRadius="35" Canvas.Left="88" Canvas.Top="96" Width="739">
-            <Canvas Background="#FF004D0B" Height="235" Canvas.Left="172" Canvas.Top="75" Margin="-5,0">
-                <TextBlock TextAlignment="Center" FontWeight="ExtraBold" FontSize="45" Foreground="NavajoWhite" Text="Nuova Partita" Canvas.Top="10" Width="748" Height="63"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Canvas.Left="48" Canvas.Top="90" Width="690">
-                    <Grid Width="180" Margin="15">
-                        <Button Name="btnTwoPlayers" Click="btnTwoPlayers_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" Height="90"  materialDesign:ButtonAssist.CornerRadius="35" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Background="LimeGreen" BorderBrush="Green" BorderThickness="3" >
-                            <TextBlock Text="2 GIOCATORI" FontWeight="ExtraBold" FontSize="16" Foreground="#FF004D0B"/>
+        <Border BorderBrush="#FF004D0B"
+                BorderThickness="15"
+                CornerRadius="35"
+                Canvas.Left="88"
+                Canvas.Top="96"
+                Width="739">
+            <Canvas Background="#FF004D0B"
+                    Height="235"
+                    Canvas.Left="172"
+                    Canvas.Top="75"
+                    Margin="-5,0">
+                <TextBlock TextAlignment="Center"
+                           FontWeight="ExtraBold"
+                           FontSize="45"
+                           Foreground="NavajoWhite"
+                           Text="Nuova Partita"
+                           Canvas.Top="10"
+                           Width="748"
+                           Height="63" />
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Canvas.Left="48"
+                            Canvas.Top="90"
+                            Width="690">
+                    <Grid Width="180"
+                          Margin="15">
+                        <Button Name="btnTwoPlayers"
+                                Command="{Binding PartitaDueGiocatoriCommand}"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="90"
+                                materialDesign:ButtonAssist.CornerRadius="35"
+                                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                Background="LimeGreen"
+                                BorderBrush="Green"
+                                BorderThickness="3">
+                            <TextBlock Text="2 GIOCATORI"
+                                       FontWeight="ExtraBold"
+                                       FontSize="16"
+                                       Foreground="#FF004D0B" />
                         </Button>
                     </Grid>
-                    <Grid Width="180" Margin="15">
-                        <Button Name="btnThreePlayers" Click="btnThreePlayers_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" Height="90" materialDesign:ButtonAssist.CornerRadius="35" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Background="LimeGreen" BorderBrush="Green" BorderThickness="3" >
-                            <TextBlock Text="3 GIOCATORI" FontWeight="ExtraBold" FontSize="16" Foreground="#FF004D0B"/>
+                    <Grid Width="180"
+                          Margin="15">
+                        <Button Name="btnThreePlayers"
+                                Command="{Binding PartitaTreGiocatoriCommand}"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="90"
+                                materialDesign:ButtonAssist.CornerRadius="35"
+                                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                Background="LimeGreen"
+                                BorderBrush="Green"
+                                BorderThickness="3">
+                            <TextBlock Text="3 GIOCATORI"
+                                       FontWeight="ExtraBold"
+                                       FontSize="16"
+                                       Foreground="#FF004D0B" />
                         </Button>
                     </Grid>
-                    <Grid Width="180" Margin="15">
-                        <Button Name="btnFourPlayers" Click="btnFourPlayers_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" Height="90" materialDesign:ButtonAssist.CornerRadius="35" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Background="LimeGreen" BorderBrush="Green" BorderThickness="3">
-                            <TextBlock Text="4 GIOCATORI" FontWeight="ExtraBold" FontSize="16" Foreground="#FF004D0B" />
+                    <Grid Width="180"
+                          Margin="15">
+                        <Button Name="btnFourPlayers"
+                                Command="{Binding PartitaQuattroGiocatoriCommand}"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="90"
+                                materialDesign:ButtonAssist.CornerRadius="35"
+                                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                                Background="LimeGreen"
+                                BorderBrush="Green"
+                                BorderThickness="3">
+                            <TextBlock Text="4 GIOCATORI"
+                                       FontWeight="ExtraBold"
+                                       FontSize="16"
+                                       Foreground="#FF004D0B" />
                         </Button>
                     </Grid>
                 </StackPanel>
             </Canvas>
         </Border>
-        <Border BorderBrush="DarkOliveGreen" BorderThickness="15" CornerRadius="35" Canvas.Left="1055" Canvas.Top="452" Height="508" Width="768">
-            <Canvas Background="DarkOliveGreen" Canvas.Left="352" Canvas.Top="75" Margin="-5">
-                <TextBlock Name="lblUsername" TextAlignment="Center" FontWeight="ExtraBold" FontSize="45" Foreground="Wheat" Text="Username" Canvas.Left="10" Canvas.Top="10" Width="728" Height="63"/>
-                <Rectangle Name="imgAdmin" Height="200" Canvas.Left="54" Canvas.Top="96" Width="200" />
-                <TextBlock Name="lblCognome" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="321" TextWrapping="Wrap" Text="Cognome: " Canvas.Top="112" Width="399"/>
-                <TextBlock Name="lblNome" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="321" TextWrapping="Wrap" Text="Nome: " Canvas.Top="173" Width="399"/>
-                <TextBlock Name="lblEta" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="321" TextWrapping="Wrap" Text="Età: " Canvas.Top="240" Width="170"/>
-                <TextBlock Name="lblPuntiTotali" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="30" TextWrapping="Wrap" Text="Punti Totali: " Canvas.Top="339" Width="284"/>
-                <TextBlock Name="lblPuntiMaxPartita" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="30" TextWrapping="Wrap" Text="Punti Max in partita: " Canvas.Top="410" Width="373"/>
-                <TextBlock Name="lblPartiteVinte" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="443" TextWrapping="Wrap" Text="Partite Vinte: " Canvas.Top="339" Width="264"/>
-                <TextBlock Name="lblPartitePerse" FontWeight="ExtraBold" FontSize="30" Foreground="Wheat" Canvas.Left="443" TextWrapping="Wrap" Text="Partite Perse: " Canvas.Top="410" Width="264"/>
+        <Border BorderBrush="DarkOliveGreen"
+                BorderThickness="15"
+                CornerRadius="35"
+                Canvas.Left="1055"
+                Canvas.Top="452"
+                Height="508"
+                Width="768">
+            <Canvas Background="DarkOliveGreen"
+                    Canvas.Left="352"
+                    Canvas.Top="75"
+                    Margin="-5">
+                <TextBlock Name="lblUsername"
+                           TextAlignment="Center"
+                           FontWeight="ExtraBold"
+                           FontSize="45"
+                           Foreground="Wheat"
+                           Text="Username"
+                           Canvas.Left="10"
+                           Canvas.Top="10"
+                           Width="728"
+                           Height="63" />
+                <Rectangle Name="imgAdmin"
+                           Height="200"
+                           Canvas.Left="54"
+                           Canvas.Top="96"
+                           Width="200" />
+                <TextBlock Name="lblCognome"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="321"
+                           TextWrapping="Wrap"
+                           Text="Cognome: "
+                           Canvas.Top="112"
+                           Width="399" />
+                <TextBlock Name="lblNome"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="321"
+                           TextWrapping="Wrap"
+                           Text="Nome: "
+                           Canvas.Top="173"
+                           Width="399" />
+                <TextBlock Name="lblEta"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="321"
+                           TextWrapping="Wrap"
+                           Text="Età: "
+                           Canvas.Top="240"
+                           Width="170" />
+                <TextBlock Name="lblPuntiTotali"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="30"
+                           TextWrapping="Wrap"
+                           Text="Punti Totali: "
+                           Canvas.Top="339"
+                           Width="284" />
+                <TextBlock Name="lblPuntiMaxPartita"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="30"
+                           TextWrapping="Wrap"
+                           Text="Punti Max in partita: "
+                           Canvas.Top="410"
+                           Width="373" />
+                <TextBlock Name="lblPartiteVinte"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="443"
+                           TextWrapping="Wrap"
+                           Text="Partite Vinte: "
+                           Canvas.Top="339"
+                           Width="264" />
+                <TextBlock Name="lblPartitePerse"
+                           FontWeight="ExtraBold"
+                           FontSize="30"
+                           Foreground="Wheat"
+                           Canvas.Left="443"
+                           TextWrapping="Wrap"
+                           Text="Partite Perse: "
+                           Canvas.Top="410"
+                           Width="264" />
 
             </Canvas>
         </Border>
-        <Button Style="{StaticResource MaterialDesignRaisedButton}" Foreground="#FF004D0B" materialDesign:ButtonAssist.CornerRadius="10" Width="174" Height="74" FontWeight="Bold" FontSize="32" ToolTip="Resource name: MaterialDesignRaisedButton"  Background="LimeGreen" BorderBrush="Green" BorderThickness="3" Content="Login" Canvas.Left="1446" Canvas.Top="96" Name="btnLogin" Click="btnLogin_Click"/>
-        <Border BorderBrush="DarkOliveGreen" BorderThickness="15" CornerRadius="35" Height="508" Width="739" Canvas.Left="88" Canvas.Top="452">
-            <DataGrid materialDesign:DataGridAssist.CellPadding="10" CanUserAddRows="False" SelectionUnit="Cell" Name="dgClassifica" 
-   Canvas.Left="82" Canvas.Top="452" BorderBrush="Transparent"  FontSize="20" VerticalGridLinesBrush="GreenYellow" HorizontalGridLinesBrush="GreenYellow" GridLinesVisibility="Horizontal" HorizontalScrollBarVisibility="Hidden" Margin="-5,0,-5,-5">
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                Foreground="#FF004D0B"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Width="174"
+                Height="74"
+                FontWeight="Bold"
+                FontSize="32"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Background="LimeGreen"
+                BorderBrush="Green"
+                BorderThickness="3"
+                Content="Login"
+                Canvas.Left="1446"
+                Canvas.Top="96"
+                Name="btnLogin"
+                Command="{Binding EseguiLoginCommand}"/>
+        <Border BorderBrush="DarkOliveGreen"
+                BorderThickness="15"
+                CornerRadius="35"
+                Height="508"
+                Width="739"
+                Canvas.Left="88"
+                Canvas.Top="452">
+            <DataGrid materialDesign:DataGridAssist.CellPadding="10"
+                      CanUserAddRows="False"
+                      SelectionUnit="Cell"
+                      Name="dgClassifica"
+                      Canvas.Left="82"
+                      Canvas.Top="452"
+                      BorderBrush="Transparent"
+                      BorderThickness="5"
+                      CanUserDeleteRows="False"
+                      CanUserResizeColumns="False"
+                      CanUserReorderColumns="False"
+                      CanUserSortColumns="False"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding Giocatori}"
+                      FontSize="20"
+                      VerticalGridLinesBrush="GreenYellow"
+                      HorizontalGridLinesBrush="GreenYellow"
+                      GridLinesVisibility="Horizontal"
+                      HorizontalScrollBarVisibility="Hidden"
+                      Margin="-5,0,-5,-5">
                 <DataGrid.Background>
-                    <SolidColorBrush Color="#33FFFFFF" Opacity="0.3"/>
+                    <SolidColorBrush Color="#33FFFFFF"
+                                     Opacity="0.3" />
                 </DataGrid.Background>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Punti" IsReadOnly="True" Binding="{Binding Path=PuntiTotali}" Width="150" Foreground="LimeGreen"/>
-                    <DataGridTextColumn Header="Username" IsReadOnly="True" Binding="{Binding Path=Username}" Width="150" Foreground="LimeGreen"/>
-                    <DataGridTextColumn Header="Cognome" IsReadOnly="True" Binding="{Binding Path=Cognome}" Width="150" Foreground="LimeGreen"/>
-                    <DataGridTextColumn Header="Nome" IsReadOnly="True" Binding="{Binding Path=Nome}" Width="150" Foreground="LimeGreen"/>
-                    <DataGridTextColumn Header="Età" IsReadOnly="True" Binding="{Binding Path=Eta}" Width="110" Foreground="LimeGreen" />
+                    <DataGridTextColumn Header="Punti"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=PuntiTotali}"
+                                        Width="150"
+                                        Foreground="LimeGreen" />
+                    <DataGridTextColumn Header="Username"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=Username}"
+                                        Width="150"
+                                        Foreground="LimeGreen" />
+                    <DataGridTextColumn Header="Cognome"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=Cognome}"
+                                        Width="150"
+                                        Foreground="LimeGreen" />
+                    <DataGridTextColumn Header="Nome"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=Nome}"
+                                        Width="150"
+                                        Foreground="LimeGreen" />
+                    <DataGridTextColumn Header="Età"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Path=Eta}"
+                                        Width="110"
+                                        Foreground="LimeGreen" />
                 </DataGrid.Columns>
                 <DataGrid.CellStyle>
                     <Style TargetType="{x:Type DataGridCell}">
-                        <Setter Property="IsEnabled"  Value="False" />
-                        <Setter Property="Height" Value="30"/>
-                        <Setter Property="TextBlock.TextAlignment" Value="Center" />
-                        <Setter Property="FontWeight" Value="Heavy"/>
+                        <Setter Property="IsEnabled"
+                                Value="False" />
+                        <Setter Property="Height"
+                                Value="30" />
+                        <Setter Property="TextBlock.TextAlignment"
+                                Value="Center" />
+                        <Setter Property="FontWeight"
+                                Value="Heavy" />
                     </Style>
                 </DataGrid.CellStyle>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="FontWeight"  Value="ExtraBold" />
-                        <Setter Property="HorizontalAlignment" Value="Center" />
-                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="Foreground" Value="Wheat"/>
+                        <Setter Property="FontWeight"
+                                Value="ExtraBold" />
+                        <Setter Property="HorizontalAlignment"
+                                Value="Center" />
+                        <Setter Property="HorizontalContentAlignment"
+                                Value="Center" />
+                        <Setter Property="Background"
+                                Value="Transparent" />
+                        <Setter Property="Foreground"
+                                Value="Wheat" />
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
             </DataGrid>
         </Border>
-        <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10" Background="LimeGreen" BorderBrush="Green" BorderThickness="3" Foreground="#FF004D0B" Width="175" Height="74" FontWeight="Bold" FontSize="32" ToolTip="Resource name: MaterialDesignRaisedButton" Content="Esci" Canvas.Left="1648" Canvas.Top="96" Name="btnClose" Click="btnClose_Click"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Background="LimeGreen"
+                BorderBrush="Green"
+                BorderThickness="3"
+                Foreground="#FF004D0B"
+                Width="175"
+                Height="74"
+                FontWeight="Bold"
+                FontSize="32"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Content="Esci"
+                Canvas.Left="1648"
+                Canvas.Top="96"
+                Name="btnClose"
+                Command="{Binding ChiudiCommand}" />
     </Canvas>
 </Window>
