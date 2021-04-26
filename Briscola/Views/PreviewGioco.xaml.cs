@@ -1,8 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace Briscola
 {
@@ -14,13 +11,13 @@ namespace Briscola
         public PreviewGioco()
         {
             InitializeComponent();
-            cnvMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
-            btnCarteTrevisane.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteTrevisane\\Carte.png")));
-            btnCarteNapoletane.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteNapoletane\\Carte.png")));
-            btnTappetoLegno.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno2.jpg")));
-            btnTappetoRosso.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")));
-            btnTappetoVerde.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoAqua.jpg")));
-            this.Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ICONA GIOCO 2.ico"));
+            //gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            //btnCarteTrevisane.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteTrevisane\\Carte.png")));
+            //btnCarteNapoletane.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\CarteNapoletane\\Carte.png")));
+            //btnTappetoLegno.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno2.jpg")));
+            //btnTappetoRosso.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")));
+            //btnTappetoVerde.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoAqua.jpg")));
+            //this.Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ICONA GIOCO 2.ico"));
 
             obj = bdg_TappetoVerde.Badge;
             objCarta = bdg_CarteTrevisane.Badge;
@@ -28,8 +25,9 @@ namespace Briscola
             bdg_TappetoRosso.Badge = null;
             bdg_CarteNapoletane.Badge = null;
         }
-        object obj;
-        object objCarta;
+
+        private readonly object obj;
+        private readonly object objCarta;
         public string TipoCarte { get; private set; }
         public string TipoSfondo { get; private set; }
         private void btnContinua_Click(object sender, RoutedEventArgs e)
@@ -66,23 +64,23 @@ namespace Briscola
                     bdg_TappetoLegno.Badge = obj;
                     bdg_TappetoVerde.Badge = null;
                     bdg_TappetoRosso.Badge = null;
-                    TipoSfondo = "Legno2.jpg"; break;
+                    TipoSfondo = "Legno2.jpg";
+                    break;
                 case "btnTappetoVerde":
                     bdg_TappetoLegno.Badge = null;
                     bdg_TappetoVerde.Badge = obj;
                     bdg_TappetoRosso.Badge = null;
-                    TipoSfondo = "TappetinoAqua.jpg"; break;
+                    TipoSfondo = "TappetinoAqua.jpg";
+                    break;
                 case "btnTappetoRosso":
                     bdg_TappetoLegno.Badge = null;
                     bdg_TappetoVerde.Badge = null;
                     bdg_TappetoRosso.Badge = obj;
-                    TipoSfondo = "TappetinoRosso.jpg"; break;
+                    TipoSfondo = "TappetinoRosso.jpg";
+                    break;
             }
         }
 
-        private void btnIndietro_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void btnIndietro_Click(object sender, RoutedEventArgs e) => Close();
     }
 }
