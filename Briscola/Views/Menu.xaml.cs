@@ -17,7 +17,7 @@ namespace Briscola
         public Menu()
         {
             InitializeComponent();
-            cnvMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            //gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
             connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + Environment.CurrentDirectory + "\\Briscola.accdb");
             //UpdateClassifica();
             btnTwoPlayers.IsEnabled = false;
@@ -25,10 +25,11 @@ namespace Briscola
             btnFourPlayers.IsEnabled = false;
             //Hide();
         }
-        OleDbConnection connection;
-        Giocatore giocatore;
 
-        void UpdateClassifica()
+        private readonly OleDbConnection connection;
+        private Giocatore giocatore;
+
+        private void UpdateClassifica()
         {
             connection.Open();
             OleDbCommand cmd = new OleDbCommand("SELECT * FROM GIOCATORI", connection);
@@ -63,10 +64,13 @@ namespace Briscola
                 {
                     login = new Login(connection);
                     if (login.ShowDialog() == true)
+                    {
                         registrato = login.Registrazione;
-
+                    }
                     else
+                    {
                         registrato = false;
+                    }
                 }
                 if (login.Loggato)
                 {
@@ -91,7 +95,8 @@ namespace Briscola
                 btnFourPlayers.IsEnabled = false;
             }
         }
-        void UpdatePlayerData()
+
+        private void UpdatePlayerData()
         {
             Statistiche stats = giocatore.GetPlayerStats(connection);
             lblUsername.Text = $"Username: {giocatore.Username}";
@@ -103,7 +108,8 @@ namespace Briscola
             lblPartiteVinte.Text = $"Partite Vinte: {stats.PartiteVinte}";
             lblPartitePerse.Text = $"Partite Perse: {stats.PartitePerse}";
         }
-        void RestorePlayerData()
+
+        private void RestorePlayerData()
         {
             lblUsername.Text = $"Username";
             lblCognome.Text = $"Cognome: ";
@@ -119,7 +125,9 @@ namespace Briscola
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             if (MsgBox.Show("Attenzione", "Sicuro di voler chiudere il gioco?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Application.Current.Shutdown();
+            }
         }
 
         private void btnTwoPlayers_Click(object sender, RoutedEventArgs e)

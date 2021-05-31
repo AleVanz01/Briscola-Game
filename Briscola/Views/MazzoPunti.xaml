@@ -6,31 +6,84 @@
         xmlns:local="clr-namespace:Briscola"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MazzoPunti" Height="720" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" BorderThickness="7" BorderBrush="DarkGreen" Background="Wheat">
-    <Canvas>
-        <Button
-            Name="btnIndietro"
-            Background="Green"
-            Foreground="Wheat"
-            BorderBrush="{x:Null}"
-        Style="{StaticResource MaterialDesignFloatingActionButton}"
-        ToolTip="MaterialDesignFloatingActionButton"
-            Height="55"
-            Width="55"
-            Canvas.Left="11"
-            Canvas.Top="11" Click="btnIndietro_Click">
-            <materialDesign:PackIcon
-            Kind="ArrowLeft"
-            Height="45"
-            Width="45" />
+        Title="MazzoPunti"
+        Height="720"
+        Width="1280"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        BorderThickness="7"
+        BorderBrush="DarkGreen"
+        Background="Wheat">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Name="btnIndietro"
+                Grid.Column="0"
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                Background="Green"
+                Foreground="Wheat"
+                BorderBrush="{x:Null}"
+                Style="{StaticResource MaterialDesignFloatingActionButton}"
+                ToolTip="MaterialDesignFloatingActionButton"
+                Height="55"
+                Width="55"
+                Click="btnIndietro_Click">
+            <materialDesign:PackIcon Kind="ArrowLeft"
+                                     Height="45"
+                                     Width="45" />
         </Button>
-        <Border Canvas.Top="117" BorderBrush="Gray" BorderThickness="5" Canvas.Left="10" Width="1246" CornerRadius="15" Background="#FFDCC9A7">
-            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled"  Canvas.Top="117" Height="551" Width="1220" Margin="0,0,0,0">
-                <StackPanel Name="stk"  Canvas.Left="10" Canvas.Top="91"  Orientation="Horizontal"/>
+        <Border 
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Margin="10,30,10,10"
+                BorderBrush="Gray"
+                BorderThickness="5"
+                Width="1246"
+                CornerRadius="15"
+                Background="#FFDCC9A7">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                          VerticalScrollBarVisibility="Disabled"
+                          Width="1220">
+                <StackPanel Name="stk"
+                            Orientation="Horizontal" />
             </ScrollViewer>
         </Border>
-        <Label Name="lblNomeGiocatore" Content="Nome Giocatore" FontSize="30" FontWeight="Bold" Canvas.Left="87" Canvas.Top="13"/>
-        <Label Content="Punti: " FontSize="30" FontWeight="Bold" Canvas.Left="1068" Canvas.Top="13"/>
-        <Label Name="lblPunti" Content="00" FontSize="30" FontWeight="Bold" Foreground="Red" Canvas.Left="1166" Canvas.Top="13"/>
-    </Canvas>
+        <Label Name="lblNomeGiocatore"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Grid.Row="0"
+               Grid.Column="1"
+               Margin="20,0,0,0"
+               Content="Nome Giocatore"
+               FontSize="30"
+               FontWeight="Bold" />
+        <Label Content="Punti: "
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Grid.Row="0"
+               Grid.Column="2"
+               FontSize="30"
+               FontWeight="Bold" />
+        <Label Name="lblPunti"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Grid.Column="3"
+               Grid.Row="0"
+               Content="00"
+               FontSize="30"
+               FontWeight="Bold"
+               Foreground="Red"/>
+    </Grid>
 </Window>
