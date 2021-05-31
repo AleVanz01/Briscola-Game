@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Briskola;
+using System;
+
 namespace Test
 {
-
-    class Program
+    internal class Program
     {
         /*static void Main(string[] args)//Prova Login
         {
@@ -12,7 +13,7 @@ namespace Test
             OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM GIOCATORI", connection);
             adapter.Fill(utenti);
         }*/
-        static void Main(string[] args)//Prova partita
+        private static void Main(string[] args)//Prova partita
         {
             Giocatore g = new Giocatore("a", "a", "a", "a", "1");/*
             giocatori.Add(new Giocatore("b", "b", "b", "b", 2));

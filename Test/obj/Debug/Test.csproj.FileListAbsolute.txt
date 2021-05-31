@@ -1,0 +1,2 @@
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Test\obj\Debug\Test.csprojAssemblyReference.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache

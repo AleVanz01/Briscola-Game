@@ -1,0 +1,153 @@
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\Briscola.exe.config
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\Briscola.exe
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\Briscola.pdb
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\MaterialDesignColors.dll
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\MaterialDesignColors.pdb
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\aleva\Desktop\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.csprojAssemblyReference.cache
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Login.g.cs
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\MainWindow.g.cs
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\App.g.cs
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.cache
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.lref
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\App.baml
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Login.baml
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\MainWindow.baml
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.g.resources
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.Properties.Resources.resources
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.csproj.GenerateResource.cache
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.csproj.CoreCompileInputs.cache
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.csproj.CopyComplete
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.exe
+D:\aleva\Desktop\Briscola\Briscola\obj\Debug\Briscola.pdb
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\Briscola.exe.config
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\Briscola.exe
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\Briscola.pdb
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\Briskola.dll
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignColors.dll
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MessageBox.exe
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\Briskola.pdb
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MessageBox.pdb
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MessageBox.exe.config
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignColors.pdb
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csprojAssemblyReference.cache
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\example.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\example.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Gioco.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\LoadingScreen.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Login.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\MazzoPunti.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Menu.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\PreviewGioco.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\App.g.cs
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.cache
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.lref
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\App.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Gioco.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\LoadingScreen.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Login.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\MazzoPunti.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Menu.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\PreviewGioco.baml
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.g.resources
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.Properties.Resources.resources
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csproj.GenerateResource.cache
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csproj.CoreCompileInputs.cache
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csproj.CopyComplete
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.exe
+D:\aleva\Desktop\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\Briscola.exe.config
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\Briscola.exe
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\Briscola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\Briskola.dll
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MaterialDesignColors.dll
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MessageBox.exe
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\Briskola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MessageBox.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MessageBox.exe.config
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MaterialDesignColors.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.csprojAssemblyReference.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\example.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\example.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Gioco.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\LoadingScreen.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Login.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\MazzoPunti.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Menu.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\PreviewGioco.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\App.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.lref
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\App.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Gioco.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\LoadingScreen.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Login.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\MazzoPunti.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Menu.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\PreviewGioco.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.g.resources
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.Properties.Resources.resources
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.csproj.GenerateResource.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.csproj.CoreCompileInputs.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.csproj.CopyComplete
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.exe
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\BACKUP\Briscola\Briscola\obj\Debug\Briscola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\Briscola.exe.config
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\Briscola.exe
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\Briscola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\Briskola.dll
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignColors.dll
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MessageBox.exe
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\Briskola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MessageBox.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MessageBox.exe.config
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignColors.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csprojAssemblyReference.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\example.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\example.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Gioco.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\LoadingScreen.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Login.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\MazzoPunti.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Menu.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\PreviewGioco.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\App.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola_MarkupCompile.lref
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\App.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Gioco.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\LoadingScreen.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Login.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\MazzoPunti.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Menu.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\PreviewGioco.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.g.resources
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.Properties.Resources.resources
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csproj.GenerateResource.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csproj.CoreCompileInputs.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.csproj.CopyComplete
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.exe
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Progetto Briscola\Briscola\Briscola\obj\Debug\Briscola.pdb
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Briscola.csprojAssemblyReference.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\Test.baml
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\Test.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\Gioco.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\LoadingScreen.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\Login.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\MazzoPunti.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\Menu.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\PreviewGioco.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Views\App.g.cs
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Briscola_MarkupCompile.cache
+D:\aleva\Desktop\PROGRAMMI C#\PROGETTI\Briscola-Game\Briscola\obj\Debug\Briscola_MarkupCompile.lref
