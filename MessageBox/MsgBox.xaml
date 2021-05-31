@@ -5,62 +5,158 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MessageBox"
         mc:Ignorable="d"
-        Title="WpfMessageBox"  MinHeight="160" 
-
-        MinWidth="420" MaxHeight="750" MaxWidth="750" 
-
-     Background="Transparent" 
-
-     SizeToContent="WidthAndHeight" 
-
-     WindowStartupLocation="CenterScreen"  
-
-     ShowInTaskbar="False" ResizeMode="NoResize" 
-
-     WindowStyle="None" Topmost="True">
-    <Border  BorderBrush="LightSlateGray" 
-
-    BorderThickness="0" CornerRadius="0">
-        <Grid  >
+        Title="WpfMessageBox"
+        MinHeight="160"
+        MinWidth="420"
+        MaxHeight="750"
+        MaxWidth="750"
+        Background="Transparent"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Topmost="True">
+    <Border  BorderBrush="LightSlateGray"
+             BorderThickness="0"
+             CornerRadius="0">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Rectangle Grid.Row="1" Grid.Column="0" 
-
-            Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Rectangle Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.RowSpan="2"
+                       Grid.ColumnSpan="2">
                 <Rectangle.Fill>
-                    <LinearGradientBrush StartPoint="0,0" 
-EndPoint="0,1" Opacity="0.8">
-                        <GradientStop Color="#FF2C721C" FrameworkElement.FlowDirection="RightToLeft"/>
-                        <GradientStop Color="#CDDFE9" Offset="1.0"/>
-                        <GradientStop Color="#FFB5CECA" Offset="1"/>
-                        <GradientStop Color="#FFAFCAC2" Offset="1"/>
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="0,1"
+                                         Opacity="0.8">
+                        <GradientStop Color="#FF2C721C"
+                                      FrameworkElement.FlowDirection="RightToLeft" />
+                        <GradientStop Color="#CDDFE9"
+                                      Offset="1.0" />
+                        <GradientStop Color="#FFB5CECA"
+                                      Offset="1" />
+                        <GradientStop Color="#FFAFCAC2"
+                                      Offset="1" />
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Fill="#FF004D0B">
+            <Rectangle Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Fill="#FF004D0B">
             </Rectangle>
-            <Grid Grid.Row="0" Grid.ColumnSpan="2" MinHeight="40" >
-                <TextBlock Margin="5,1,0,1" Name="MessageTitle" FontWeight="Bold" TextTrimming="CharacterEllipsis" LineHeight="22" FontSize="16" VerticalAlignment="Center" Foreground="GreenYellow"/>
+            <Grid Grid.Row="0"
+                  Grid.ColumnSpan="2"
+                  MinHeight="40">
+                <TextBlock Margin="5,1,0,1"
+                           Name="MessageTitle"
+                           FontWeight="Bold"
+                           TextTrimming="CharacterEllipsis"
+                           LineHeight="22"
+                           FontSize="16"
+                           VerticalAlignment="Center"
+                           Foreground="GreenYellow" />
             </Grid>
-            <Image Name="img" Margin="25 15 5 5" Grid.Row="1" Grid.Column="0" Width="50" Height="50" Stretch="Fill" />
-            <TextBlock Foreground="Wheat" Margin="20,27" VerticalAlignment="Center" TextWrapping="Wrap" Name="txtMsg" Grid.Row="1" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" LineHeight="20"/>
-            <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button BorderBrush="MediumAquamarine" Name="btnOk" Content="OK" Cursor="Hand" Margin="3,5" MinWidth="70" Height="35" Click="Button_Click" Foreground="Black" FontSize="16" Style="{StaticResource MessageBoxButtonStyle}"     
-                            Background="Transparent" VerticalAlignment="Center"  HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="btnOk_MouseEnter" MouseLeave="btnOk_MouseLeave" />
-                    <Button Name="btnYes" Content="Sì" Cursor="Hand" Margin="3,5" MinWidth="70" Height="35" Click="Button_Click" Foreground="Black" FontSize="16" Style="{StaticResource MessageBoxButtonStyle}"    
-                            Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="btnYes_MouseEnter" MouseLeave="btnYes_MouseLeave"/>
-                    <Button Name="btnNo" Content="No" Cursor="Hand" Margin="3,5" MinWidth="70" Height="35" Click="Button_Click" Foreground="Black" FontSize="16" Style="{StaticResource MessageBoxButtonStyle}"   
-                              Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="btnNo_MouseEnter" MouseLeave="btnNo_MouseLeave" />
-                    <Button Name="btnCancel" Cursor="Hand" Margin="3,5" Content="Cancel" MinWidth="70" Height="35" Click="Button_Click" Style="{StaticResource MessageBoxButtonStyle}" Foreground="Black" 
-                            Background="Transparent" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="btnCancel_MouseEnter" MouseLeave="btnCancel_MouseLeave"/>
+            <Image Name="img"
+                   Margin="25 15 5 5"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Width="50"
+                   Height="50"
+                   Stretch="Fill" />
+            <TextBlock Foreground="Wheat"
+                       Margin="20,27"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"
+                       Name="txtMsg"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       FontSize="16"
+                       FontWeight="ExtraBold"
+                       LineHeight="20" />
+            <Grid Grid.Row="2"
+                  Grid.ColumnSpan="2"
+                  Grid.Column="0">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button BorderBrush="MediumAquamarine"
+                            Name="btnOk"
+                            Content="OK"
+                            Cursor="Hand"
+                            Margin="3,5"
+                            MinWidth="70"
+                            Height="35"
+                            Click="Button_Click"
+                            Foreground="Black"
+                            FontSize="16"
+                            Style="{StaticResource MessageBoxButtonStyle}"
+                            Background="Transparent"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            VerticalContentAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            MouseEnter="btnOk_MouseEnter"
+                            MouseLeave="btnOk_MouseLeave" />
+                    <Button Name="btnYes"
+                            Content="Sì"
+                            Cursor="Hand"
+                            Margin="3,5"
+                            MinWidth="70"
+                            Height="35"
+                            Click="Button_Click"
+                            Foreground="Black"
+                            FontSize="16"
+                            Style="{StaticResource MessageBoxButtonStyle}"
+                            Background="Transparent"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            VerticalContentAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            MouseEnter="btnYes_MouseEnter"
+                            MouseLeave="btnYes_MouseLeave" />
+                    <Button Name="btnNo"
+                            Content="No"
+                            Cursor="Hand"
+                            Margin="3,5"
+                            MinWidth="70"
+                            Height="35"
+                            Click="Button_Click"
+                            Foreground="Black"
+                            FontSize="16"
+                            Style="{StaticResource MessageBoxButtonStyle}"
+                            Background="Transparent"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            VerticalContentAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            MouseEnter="btnNo_MouseEnter"
+                            MouseLeave="btnNo_MouseLeave" />
+                    <Button Name="btnCancel"
+                            Cursor="Hand"
+                            Margin="3,5"
+                            Content="Cancel"
+                            MinWidth="70"
+                            Height="35"
+                            Click="Button_Click"
+                            Style="{StaticResource MessageBoxButtonStyle}"
+                            Foreground="Black"
+                            Background="Transparent"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            VerticalContentAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            MouseEnter="btnCancel_MouseEnter"
+                            MouseLeave="btnCancel_MouseLeave" />
                 </StackPanel>
             </Grid>
         </Grid>

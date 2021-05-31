@@ -5,11 +5,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Markup;
 
 namespace Briscola.ViewModels
 {
@@ -17,7 +15,6 @@ namespace Briscola.ViewModels
     {
         private readonly OleDbConnection _connection;
         private readonly DataTable _utenti;
-        private List<object> _controlli;
         private Giocatore _giocatore;
         private bool _isRicordamiAbilitato;
         private string _operazione;
@@ -35,10 +32,10 @@ namespace Briscola.ViewModels
             adapter.Fill(_utenti);
             _connection = connection;
 
-            if (File.Exists(Environment.CurrentDirectory + "\\login.txt"))
+            if (File.Exists(Environment.CurrentDirectory + "\\Login.txt"))
             {
                 Giocatore = new Giocatore();
-                StreamReader reader = new StreamReader(new FileStream(Environment.CurrentDirectory + "\\login.txt", FileMode.Open));
+                StreamReader reader = new StreamReader(new FileStream(Environment.CurrentDirectory + "\\Login.txt", FileMode.Open));
                 Giocatore.Username = reader.ReadLine();
                 Giocatore.Password = reader.ReadLine();
 
@@ -50,14 +47,20 @@ namespace Briscola.ViewModels
 
         public ICommand ChiudiCommand => new RelayCommand((param) => OnClosing(null, null));
 
+        public ICommand LoginCommand => new RelayCommand(EseguiLogin);
+
+        public ICommand RegistraCommand => new RelayCommand(EseguiRegistrazione);
+
         public event EventHandler OnClosing;
-        public event EventHandler<RegistrazioneEventArgs> OnRegistrato;
+        public event EventHandler OnRegistrazioneRichiesta;
 
         public Giocatore Giocatore
         {
             get => _giocatore;
             set => SetProperty(ref _giocatore, value);
         }
+
+        public List<UIElement> Controlli { get; set; }
 
         public bool IsRicordamiAbilitato
         {
@@ -69,121 +72,6 @@ namespace Briscola.ViewModels
         {
             get => _operazione;
             set => SetProperty(ref _operazione, value);
-        }
-
-        public bool Registrazione { get; private set; }
-
-        public bool IsLoggato { get; private set; }
-
-        public void EseguiLogin(object p)
-        {
-            try
-            {
-
-                if (Giocatore?.Username == "" || Giocatore?.Password == "")
-                {
-                    MsgBox.Show("Attenzione", "Inserire tutti i campi obbligatori", MessageBoxType.Warning);
-                }
-                else
-                {
-                    if (Operazione == "Login")
-                    {
-                        if (CheckLogin(Giocatore?.Username, Giocatore?.Password, out string errore))
-                        {
-                            MsgBox.Show("Accesso Eseguito", MessageBoxType.Information);
-                            if (IsRicordamiAbilitato == true)
-                            {
-                                StreamWriter writer = new StreamWriter(new FileStream(Environment.CurrentDirectory + "\\Login.txt", FileMode.Create));
-                                writer.WriteLine(Giocatore?.Username);
-                                writer.WriteLine(Giocatore?.Password);
-                                writer.Close();
-                                File.Encrypt(Environment.CurrentDirectory + "\\Login.txt");
-                            }
-
-                            IsLoggato = true;
-                            OnClosing(null, null);
-                        }
-                        else
-                        {
-                            MsgBox.Show("Attenzione", "Accesso Fallito: " + errore, MessageBoxType.Warning);
-                        }
-                    }
-                    else
-                    {
-                        if (CheckRegistrazione(GetDataTextBox(), out string errore))
-                        {
-                            MsgBox.Show("Registrazione eseguita con successo!", "Attenzione", MessageBoxType.Information);
-                            Registrazione = true;
-                            OnClosing(null, null);
-                        }
-                        else
-                        {
-                            MsgBox.Show("Attenzione", "Registrazione fallita: " + errore, MessageBoxType.Information);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MsgBox.Show("Attenzione", ex.Message, MessageBoxType.Error);
-            }
-        }
-
-        public void EseguiRegistrazione(object p)
-        {
-            //EVENTO CALLBACK
-            TextBox textBox = new TextBox();
-            ComboBox comboBox = new ComboBox();
-            for (int i = 0; i < 3; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        textBox = CreaControllo(typeof(TextBox), "Cognome") as TextBox;
-                        textBox.Name = "txtCognome";
-                        stp1.Children.Add(textBox);
-                        break;
-                    case 1:
-                        textBox = CreaControllo(typeof(TextBox), "Nome") as TextBox;
-                        textBox.Name = "txtNome";
-                        stp1.Children.Add(textBox);
-                        break;
-                    case 2:
-                        comboBox = CreaControllo(typeof(ComboBox), "Età") as ComboBox;
-                        comboBox.Name = "cbEta";
-                        stp1.Children.Add(comboBox);
-                        break;
-                }
-            }
-            _controlli = new List<object>();
-            for (int i = 0; i < stp1.Children.Count; i++)
-            {
-                if (i > 1 && i < 5)
-                {
-                    continue;
-                }
-                else
-                {
-                    _controlli.Add(stp1.Children[i]);
-                }
-            }
-            _controlli.Add(stp1.Children[2]);
-            _controlli.Add(stp1.Children[3]);
-            _controlli.Add(stp1.Children[4]);
-            stp1.Children.Clear();
-
-            for (int i = 0; i < _controlli.Count; i++)
-            {
-                stp1.Children.Add((UIElement)_controlli[i]);
-            }
-
-            Operazione = "Registrati";
-            PanelLoginWidth += 30;
-            PanelRegistrazione = Visibility.Collapsed;
-            WindowWidth += 50;
-            GridWidth += 50;
-            WindowHeight += 230;
-            WindowTop -= 150;
         }
 
         public double WindowTop
@@ -222,59 +110,77 @@ namespace Briscola.ViewModels
             set => SetProperty(ref _panelRegistrazione, value);
         }
 
-        private Control CreaControllo(Type tipo, string testo)
+        public bool Registrazione { get; private set; }
+
+        public bool IsLoggato { get; private set; }
+
+        public void EseguiLogin(object p)
         {
-            if (tipo.GetType() == typeof(TextBox))
+            try
             {
-                TextBox t;
-                StringBuilder builder = new StringBuilder();
-                builder.Append("<TextBox xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' ");
-                builder.Append("Margin ='20' Style = '{StaticResource TextBoxCustom}' ");
-                builder.Append("xmlns:materialDesign='http://materialdesigninxaml.net/winfx/xaml/themes'");
-                builder.Append($" VerticalAlignment='Top' Height = '40' AcceptsReturn = 'True' TextWrapping = 'Wrap'");
-                builder.Append($" VerticalScrollBarVisibility='Auto'> <materialDesign:HintAssist.Hint> ");
-                string textBlock = $@"<TextBlock xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' Name = 
-                                    'hint{testo.Substring(0, testo.Length - 1)}' Background = 'WhiteSmoke'> {testo} </TextBlock>";
-                builder.Append($"{textBlock}  </materialDesign:HintAssist.Hint> </TextBox>");
-                t = (TextBox)XamlReader.Parse(builder.ToString());
-
-                t.MaxLength = 15;
-                t.PreviewTextInput += (sender, e) =>
+                if (Giocatore?.Username == "" || Giocatore?.Password == "")
                 {
-                    if (!char.IsLetter(e.Text[0]))
-                    {
-                        e.Handled = true;
-                    }
-                };
-
-                return t;
-            }
-            else if (tipo.GetType() == typeof(ComboBox))
-            {
-                List<int> rangeEta = new List<int>();
-                for (int i = 0; i < 99; i++)
-                {
-                    rangeEta.Add(i + 1);
+                    MsgBox.Show("Attenzione", "Inserire tutti i campi obbligatori", MessageBoxType.Warning);
                 }
+                else
+                {
+                    if (Operazione == "Login")
+                    {
+                        if (CheckLogin(Giocatore?.Username, Giocatore?.Password, out string errore))
+                        {
+                            MsgBox.Show("Accesso Eseguito", MessageBoxType.Information);
+                            if (IsRicordamiAbilitato == true)
+                            {
+                                using (FileStream file = new FileStream(Environment.CurrentDirectory + "\\Login.txt", FileMode.Create))
+                                {
+                                    using (StreamWriter writer = new StreamWriter(file))
+                                    {
+                                        writer.WriteLine(Giocatore?.Username);
+                                        writer.WriteLine(Giocatore?.Password);
+                                    }
+                                }
+                            }
 
-                ComboBox c;
-
-                StringBuilder builder = new StringBuilder();
-                builder.Append("<ComboBox xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' Margin='20' ");
-                builder.Append("ItemsSource='{ Binding rangeEta}'");
-                builder.Append(" Style = '{StaticResource MaterialDesignFloatingHintComboBox}' ");
-                builder.Append("xmlns:materialDesign='http://materialdesigninxaml.net/winfx/xaml/themes' ");
-                builder.Append($"VerticalAlignment='Top' Height = '40' materialDesign:TextFieldAssist.UnderlineBrush='LimeGreen' materialDesign:HintAssist.Foreground='LimeGreen' > <materialDesign:HintAssist.Hint>");
-                string textBlock = $"<TextBlock xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' Name = 'hint{testo}' Background = 'WhiteSmoke'> {testo} </TextBlock>";
-                builder.Append($"{textBlock}  </materialDesign:HintAssist.Hint>");
-                builder.Append($"<ComboBox.ItemsPanel> <ItemsPanelTemplate> <VirtualizingStackPanel/> </ItemsPanelTemplate> </ComboBox.ItemsPanel> </ComboBox>");
-                c = (ComboBox)XamlReader.Parse(builder.ToString());
-                c.ItemsSource = rangeEta;
-
-                return c;
+                            IsLoggato = true;
+                            OnClosing(null, null);
+                        }
+                        else
+                        {
+                            MsgBox.Show("Attenzione", "Accesso Fallito: " + errore, MessageBoxType.Warning);
+                        }
+                    }
+                    else
+                    {
+                        if (CheckRegistrazione(GetDataTextBox(), out string errore))
+                        {
+                            MsgBox.Show("Registrazione eseguita con successo!", "Attenzione", MessageBoxType.Information);
+                            Registrazione = true;
+                            OnClosing(null, null);
+                        }
+                        else
+                        {
+                            MsgBox.Show("Attenzione", "Registrazione fallita: " + errore, MessageBoxType.Information);
+                        }
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MsgBox.Show("Attenzione", ex.Message, MessageBoxType.Error);
+            }
+        }
 
-            return null;
+        public void EseguiRegistrazione(object p)
+        {
+            OnRegistrazioneRichiesta(null, null);
+
+            Operazione = "Registrati";
+            PanelLoginWidth += 30;
+            PanelRegistrazione = Visibility.Collapsed;
+            WindowWidth += 50;
+            GridWidth += 50;
+            WindowHeight += 230;
+            WindowTop -= 150;
         }
 
         private bool CheckLogin(string username, string psw, out string errore)
@@ -345,11 +251,11 @@ namespace Briscola.ViewModels
             PasswordBox p1;
             ComboBox c1;
             int j = 0;
-            for (int i = 0; i < _controlli.Count; i++)
+            for (int i = 0; i < Controlli.Count; i++)
             {
-                if (_controlli[i] is StackPanel)
+                if (Controlli[i] is StackPanel)
                 {
-                    StackPanel s1 = _controlli[i] as StackPanel;
+                    StackPanel s1 = Controlli[i] as StackPanel;
                     if (s1.Children[0] is TextBox)
                     {
                         t1 = s1.Children[0] as TextBox;
@@ -363,15 +269,15 @@ namespace Briscola.ViewModels
                         j++;
                     }
                 }
-                else if (_controlli[i] is TextBox)
+                else if (Controlli[i] is TextBox)
                 {
-                    t1 = _controlli[i] as TextBox;
+                    t1 = Controlli[i] as TextBox;
                     dati[j] = t1.Text;
                     j++;
                 }
-                else if (_controlli[i] is ComboBox)
+                else if (Controlli[i] is ComboBox)
                 {
-                    c1 = _controlli[i] as ComboBox;
+                    c1 = Controlli[i] as ComboBox;
                     dati[j] = c1.Text;
                     j++;
                 }

@@ -14,8 +14,15 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="DarkGreen">
-    <Canvas>
-        <Button Background="LimeGreen"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0"
+                Margin="10,10,0,0"
+                HorizontalAlignment="Left"
+                Background="LimeGreen"
                 BorderBrush="LimeGreen"
                 Foreground="Wheat"
                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
@@ -31,15 +38,16 @@
                                      Width="24" />
         </Button>
 
-        <Grid Width="300"
+        <Grid Grid.Row="1"
+              Width="300"
               Name="grid">
-
-            <StackPanel Name="stp">
+            <StackPanel Name="stp" Height="390">
                 <Border Name="border"
+                        VerticalAlignment="Center"
                         Background="WhiteSmoke"
-                        Margin="30 35"
+                        Margin="20,30,20,20"
                         CornerRadius="15">
-                    <StackPanel Margin="25"
+                    <StackPanel 
                                 Name="stp1">
                         <StackPanel>
                             <AdornerDecorator>
@@ -107,7 +115,7 @@
                                         materialDesign:ButtonAssist.CornerRadius="15"
                                         ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Name="btnLogin"
-                                        Click="btnLogin_Click"
+                                        Command="{Binding LoginCommand}"
                                         Background="LimeGreen"
                                         BorderBrush="Green">
                                     <TextBlock Name="txtLogin"
@@ -129,7 +137,7 @@
                                     Content="Registrati"
                                     FontSize="12"
                                     x:Name="btnRegistra"
-                                    Click="btnRegistra_Click"
+                                    Command="{Binding RegistraCommand}"
                                     Foreground="LimeGreen"
                                     Width="85" />
                         </StackPanel>
@@ -137,5 +145,5 @@
                 </Border>
             </StackPanel>
         </Grid>
-    </Canvas>
+    </Grid>
 </Window>

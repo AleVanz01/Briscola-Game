@@ -6,12 +6,36 @@
         xmlns:local="clr-namespace:Briscola"
         xmlns:materialDesign='http://materialdesigninxaml.net/winfx/xaml/themes'
         mc:Ignorable="d"
-        Title="LoadingScreen"  Width="1920" Height="1080"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized">
-    <Canvas Name="cnv">
-        <Canvas Name="cnvScritta" Width="1920" Height="1080">
+        Title="LoadingScreen"
+        MinWidth="850"
+        MinHeight="650"
+        Height="770"
+        Width="1280"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowState="Maximized">
+    <Grid Name="grid">
+        <Grid Name="gridScritta"
+              Height="770"
+              Width="1280">
 
-        </Canvas>        
-        <ProgressBar Name="pgb" Margin="60 0" Width="1800" Height="20" Canvas.Top="978" Background="Transparent" Foreground="ForestGreen" Panel.ZIndex="1" BorderBrush="Transparent" RenderTransformOrigin="0,0" ToolTip="TextBlock" />
-        <TextBlock TextAlignment="Right" Name="txtUsername" Width="545" Height="88" Canvas.Left="1277" Canvas.Top="68" FontWeight="ExtraBold" FontSize="50"  Foreground="Wheat"/>
-    </Canvas>
+        </Grid>
+        <ProgressBar Name="pgb"
+                     VerticalAlignment="Bottom"
+                     Margin="0,0,0,50"
+                     Width="1100"
+                     Height="30"
+                     Background="Transparent"
+                     Foreground="ForestGreen"
+                     BorderBrush="Transparent"
+                     ToolTip="TextBlock" />
+        <TextBlock TextAlignment="Right"
+                   Name="txtUsername"
+                   Width="545"
+                   Height="88"
+                   FontWeight="ExtraBold"
+                   FontSize="50"
+                   Foreground="Wheat" />
+    </Grid>
 </Window>
