@@ -8,31 +8,23 @@
         mc:Ignorable="d"
         Title="Imposta le tue preferenze..."
         MinWidth="850"
+        Icon="/Legno2.jpg"
         MinHeight="650"
-        Height="720"
+        Height="770"
         Width="1280"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowStyle="None"
         WindowState="Maximized">
+    
     <Grid Name="gridMain">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="80" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="80" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="80" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="75" />
-            <RowDefinition Height="45" />
+            <RowDefinition Height="75" />
             <RowDefinition />
             <RowDefinition Height="70" />
             <RowDefinition />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
+
         <Button Name="btnIndietro"
                 Grid.Column="0"
                 Grid.Row="0"
@@ -52,9 +44,7 @@
         </Button>
         <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}"
                    Grid.Row="1"
-                   Grid.Column="2"
-                   Grid.ColumnSpan="3"
-                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
                    FontWeight="Bold"
                    Foreground="Wheat"
                    Text="Seleziona il mazzo di carte:">
@@ -70,81 +60,136 @@
                    Height="43"
                    Text="Seleziona lo sfondo:">
         </TextBlock>
-        <StackPanel Grid.Column="1"
-                    Grid.Row="4">
-            <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
-                                   Name="bdg_TappetoLegno"
-                                   BadgeColorZoneMode="Accent"
-                                   BadgeBackground="#FF29FF6D"
-                                   BadgeForeground="#DD000000"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,30,0,0">
-                <Button Name="btnTappetoLegno"
-                        MinHeight="122"
-                        MinWidth="225"
-                        BorderBrush="Wheat"
-                        BorderThickness="2"
-                        HorizontalAlignment="Stretch"
-                        Click="btnTappetoLegno_Click"
-                        materialDesign:ButtonAssist.CornerRadius="15">
-                </Button>
-            </materialDesign:Badged>
-            <Label Content="Tappetino ligneo"
-                   FontSize="20"
-                   HorizontalAlignment="Center"
-                   FontWeight="SemiBold"
-                   Foreground="Wheat" />
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel>
+                <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
+                                       Name="bdg_CarteTrevisane"
+                                       BadgeColorZoneMode="Accent"
+                                       BadgeBackground="#FF29FF6D"
+                                       BadgeForeground="#DD000000">
+                    <Button Name="btnCarteTrevisane"
+                            Content=""
+                            MinWidth="220"
+                            MinHeight="160"
+                            BorderBrush="{x:Null}"
+                            HorizontalAlignment="Center"
+                            Click="btnCarteTrevisane_Click"
+                            materialDesign:ButtonAssist.CornerRadius="15">
+                    </Button>
+                </materialDesign:Badged>
+                <Label Content="Carte Trevisane"
+                       FontSize="20"
+                       HorizontalContentAlignment="Center"
+                       FontWeight="SemiBold"
+                       Foreground="Wheat" />
+            </StackPanel>
+            <StackPanel Margin="50,0,0,0">
+                <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
+                                       Name="bdg_CarteNapoletane"
+                                       BadgeColorZoneMode="Accent"
+                                       BadgeBackground="#FF29FF6D"
+                                       BadgeForeground="#DD000000"
+                                       HorizontalAlignment="Center">
+                    <Button Name="btnCarteNapoletane"
+                            Content=""
+                            MinWidth="220"
+                            MinHeight="160"
+                            BorderBrush="{x:Null}"
+                            HorizontalAlignment="Stretch"
+                            Click="btnCarteTrevisane_Click"
+                            materialDesign:ButtonAssist.CornerRadius="15">
+                    </Button>
+                </materialDesign:Badged>
+                <Label Content="Carte Napoletane"
+                       FontSize="20"
+                       HorizontalContentAlignment="Center"
+                       FontWeight="SemiBold"
+                       Foreground="Wheat" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="3"
-                    Grid.Row="4">
-            <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
-                                   Name="bdg_TappetoVerde"
-                                   BadgeColorZoneMode="Accent"
-                                   BadgeBackground="#FF29FF6D"
-                                   BadgeForeground="#DD000000"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,30,0,0">
-                <Button Name="btnTappetoVerde"
-                        MinHeight="122"
-                        MinWidth="225"
-                        BorderBrush="Wheat"
-                        BorderThickness="2"
-                        HorizontalAlignment="Stretch"
-                        Click="btnTappetoLegno_Click"
-                        materialDesign:ButtonAssist.CornerRadius="15">
-                </Button>
-            </materialDesign:Badged>
-            <Label Content="Tappetino verde"
-                   FontSize="20"
-                   HorizontalAlignment="Center"
-                   FontWeight="SemiBold"
-                   Foreground="Wheat" />
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="4"
+                    Margin="150,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <StackPanel>
+                <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
+                                       Name="bdg_TappetoLegno"
+                                       BadgeColorZoneMode="Accent"
+                                       BadgeBackground="#FF29FF6D"
+                                       BadgeForeground="#DD000000"
+                                       Margin="0,30,0,0">
+                    <Button Name="btnTappetoLegno"
+                            MinHeight="122"
+                            MinWidth="225"
+                            BorderBrush="Wheat"
+                            BorderThickness="2"
+                            Click="btnTappetoLegno_Click"
+                            materialDesign:ButtonAssist.CornerRadius="15">
+                    </Button>
+                </materialDesign:Badged>
+                <Label Content="Tappetino ligneo"
+                       FontSize="20"
+                       FontWeight="SemiBold"
+                       Foreground="Wheat" />
+            </StackPanel>
+            <StackPanel Margin="60,0">
+                <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
+                                       Name="bdg_TappetoVerde"
+                                       BadgeColorZoneMode="Accent"
+                                       BadgeBackground="#FF29FF6D"
+                                       BadgeForeground="#DD000000"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,30,0,0">
+                    <Button Name="btnTappetoVerde"
+                            MinHeight="122"
+                            MinWidth="225"
+                            BorderBrush="Wheat"
+                            BorderThickness="2"
+                            HorizontalAlignment="Stretch"
+                            Click="btnTappetoLegno_Click"
+                            materialDesign:ButtonAssist.CornerRadius="15">
+                    </Button>
+                </materialDesign:Badged>
+                <Label Content="Tappetino verde"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       FontWeight="SemiBold"
+                       Foreground="Wheat" />
+            </StackPanel>
+            <StackPanel Grid.Column="5"
+                        Grid.Row="4">
+                <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
+                                       Name="bdg_TappetoRosso"
+                                       BadgeColorZoneMode="Accent"
+                                       BadgeBackground="#FF29FF6D"
+                                       BadgeForeground="#DD000000"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,30,0,0">
+                    <Button Name="btnTappetoRosso"
+                            MinHeight="122"
+                            MinWidth="225"
+                            BorderBrush="Wheat"
+                            BorderThickness="2"
+                            HorizontalAlignment="Stretch"
+                            Click="btnTappetoLegno_Click"
+                            materialDesign:ButtonAssist.CornerRadius="15">
+                    </Button>
+                </materialDesign:Badged>
+                <Label Content="Tappetino rosso"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       FontWeight="SemiBold"
+                       Foreground="Wheat" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="5"
-                    Grid.Row="4">
-            <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
-                                   Name="bdg_TappetoRosso"
-                                   BadgeColorZoneMode="Accent"
-                                   BadgeBackground="#FF29FF6D"
-                                   BadgeForeground="#DD000000"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,30,0,0">
-                <Button Name="btnTappetoRosso"
-                        MinHeight="122"
-                        MinWidth="225"
-                        BorderBrush="Wheat"
-                        BorderThickness="2"
-                        HorizontalAlignment="Stretch"
-                        Click="btnTappetoLegno_Click"
-                        materialDesign:ButtonAssist.CornerRadius="15">
-                </Button>
-            </materialDesign:Badged>
-            <Label Content="Tappetino rosso"
-                   FontSize="20"
-                   HorizontalAlignment="Center"
-                   FontWeight="SemiBold"
-                   Foreground="Wheat" />
-        </StackPanel>
+
         <Button Name="btnContinua"
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 Grid.Row="5"
@@ -167,60 +212,5 @@
                 Click="btnContinua_Click">
             CONTINUA
         </Button>
-        <StackPanel Grid.Column="1"
-                    Grid.ColumnSpan="2"
-                    Grid.Row="2">
-            <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
-                                   Name="bdg_CarteTrevisane"
-                                   BadgeColorZoneMode="Accent"
-                                   BadgeBackground="#FF29FF6D"
-                                   BadgeForeground="#DD000000"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,20,0,0">
-                <Button Name="btnCarteTrevisane"
-                        Content=""
-                        MinWidth="220"
-                        MinHeight="160"
-                        BorderBrush="{x:Null}"
-                        HorizontalAlignment="Stretch"
-                        Click="btnCarteTrevisane_Click"
-                        materialDesign:ButtonAssist.CornerRadius="15">
-                </Button>
-            </materialDesign:Badged>
-            <Label Content="Carte Trevisane"
-                   FontSize="20"
-                   HorizontalContentAlignment="Center"
-                   FontWeight="SemiBold"
-                   Foreground="Wheat" />
-        </StackPanel>
-        <StackPanel Grid.Column="4"
-                    Grid.ColumnSpan="2"
-                    Grid.Row="2">
-            <materialDesign:Badged Badge="{materialDesign:PackIcon Kind=Check}"
-                                   Name="bdg_CarteNapoletane"
-                                   BadgeColorZoneMode="Accent"
-                                   BadgeBackground="#FF29FF6D"
-                                   BadgeForeground="#DD000000"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,20,0,0">
-                <Button Name="btnCarteNapoletane"
-                        Content=""
-                        MinWidth="220"
-                        MinHeight="160"
-                        BorderBrush="{x:Null}"
-                        HorizontalAlignment="Stretch"
-                        Click="btnCarteTrevisane_Click"
-                        materialDesign:ButtonAssist.CornerRadius="15">
-                </Button>
-            </materialDesign:Badged>
-            <Label Content="Carte Napoletane"
-                   Grid.Column="4"
-                   Grid.Row="2"
-                   Grid.ColumnSpan="2"
-                   FontSize="20"
-                   HorizontalContentAlignment="Center"
-                   FontWeight="SemiBold"
-                   Foreground="Wheat" />
-        </StackPanel>
     </Grid>
 </Window>
