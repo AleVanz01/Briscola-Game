@@ -44,4 +44,3 @@ namespace Briscola
         }
     }
 }
-huh
