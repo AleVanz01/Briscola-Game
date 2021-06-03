@@ -30,7 +30,7 @@
                 Height="30"
                 Width="31"
                 Name="btnChiudi"
-                Command="{Binding ChiudiCommand}"
+                Click="btnChiudi_Click"
                 Canvas.Left="5"
                 Canvas.Top="5">
             <materialDesign:PackIcon Kind="ArrowBack"
@@ -115,7 +115,7 @@
                                         materialDesign:ButtonAssist.CornerRadius="15"
                                         ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                                         Name="btnLogin"
-                                        Command="{Binding LoginCommand}"
+                                        Click="btnLogin_Click"
                                         Background="LimeGreen"
                                         BorderBrush="Green">
                                     <TextBlock Name="txtLogin"
@@ -137,7 +137,7 @@
                                     Content="Registrati"
                                     FontSize="12"
                                     x:Name="btnRegistra"
-                                    Command="{Binding RegistraCommand}"
+                                    Click="btnRegistra_Click"
                                     Foreground="LimeGreen"
                                     Width="85" />
                         </StackPanel>

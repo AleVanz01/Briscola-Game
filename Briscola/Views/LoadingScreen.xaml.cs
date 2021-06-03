@@ -14,10 +14,10 @@ namespace Briscola
         public LoadingScreen(BitmapImage image, string username = "", BitmapImage scritta = null)
         {
             InitializeComponent();
-            grid.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            cnv.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
             txtUsername.Text = username != "" ? username : null;
-            grid.Background = new ImageBrush(image);
-            gridScritta.Background = new ImageBrush(scritta);
+            cnv.Background = new ImageBrush(image);
+            cnvScritta.Background = new ImageBrush(scritta);
             timer = new DispatcherTimer();
             pgb.Minimum = 0;
             pgb.Maximum = 1000;
@@ -27,10 +27,9 @@ namespace Briscola
             timer.Tick += timer_Tick;
             timer.Start();
         }
+        DispatcherTimer timer;
 
-        private readonly DispatcherTimer timer;
-
-        public double Progress { get => pgb.Value; set => pgb.Value = value; }
+        public double Progress { get => pgb.Value; set { pgb.Value = value; } }
 
         private void timer_Tick(object sender, EventArgs e)
         {
