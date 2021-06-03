@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Briscola", "Briscola\Briscola.csproj", "{D896821F-0A32-437C-9F0D-69F57C890149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A45F4EEC-F8F7-4ABC-B80B-7A0331CAEC04}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBox", "MessageBox\MessageBox.csproj", "{C12B8069-757E-4179-8D60-7E1E4933A27F}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{D896821F-0A32-437C-9F0D-69F57C890149}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D896821F-0A32-437C-9F0D-69F57C890149}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D896821F-0A32-437C-9F0D-69F57C890149}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A45F4EEC-F8F7-4ABC-B80B-7A0331CAEC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A45F4EEC-F8F7-4ABC-B80B-7A0331CAEC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A45F4EEC-F8F7-4ABC-B80B-7A0331CAEC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A45F4EEC-F8F7-4ABC-B80B-7A0331CAEC04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C12B8069-757E-4179-8D60-7E1E4933A27F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C12B8069-757E-4179-8D60-7E1E4933A27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C12B8069-757E-4179-8D60-7E1E4933A27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
