@@ -17,7 +17,7 @@ namespace Briscola
         public Menu()
         {
             InitializeComponent();
-            //gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            //gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\Sfondi\\Legno.png")));
             connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + Environment.CurrentDirectory + "\\Briscola.accdb");
             //UpdateClassifica();
             btnTwoPlayers.IsEnabled = false;
@@ -75,7 +75,7 @@ namespace Briscola
                 if (login.Loggato)
                 {
                     giocatore = login.Giocatore;
-                    imgAdmin.Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\utente.png")));
+                    imgAdmin.Fill = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\utente.png")));
                     UpdatePlayerData();
                     UpdateClassifica();
                     lblUsername.Text = giocatore.Username;
@@ -141,7 +141,7 @@ namespace Briscola
         private void btnThreePlayers_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            LoadingScreen load = new LoadingScreen(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")), giocatore.Username, new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ScrittaBriscola.png")));
+            LoadingScreen load = new LoadingScreen(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\Sfondi\\TappetinoRosso.jpg")), giocatore.Username, new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ScrittaBriscola.png")));
             load.ShowDialog();
             Show();
             //Gioco partita = new Gioco(3, giocatore);
