@@ -161,14 +161,14 @@ namespace Briscola
         private void LoadResources(TipoCarta tipoCarte)
         {
             string path;
-            gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\Sfondi\\Legno.png")));
             if (tipoCarte == TipoCarta.Trevisana)
             {
-                path = Environment.CurrentDirectory + "\\Resources\\CarteTrevisane";
+                path = Environment.CurrentDirectory + "\\Immagini\\CarteTrevisane";
             }
             else
             {
-                path = Environment.CurrentDirectory + "\\Resources\\CarteNapoletane";
+                path = Environment.CurrentDirectory + "\\Immagini\\CarteNapoletane";
             }
 
             cartaMazzo.Background = new ImageBrush(new BitmapImage(new Uri(path + "\\Retro.png")));
