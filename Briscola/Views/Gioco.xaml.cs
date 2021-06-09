@@ -18,13 +18,6 @@ namespace Briscola
     /// </summary>
     public partial class Gioco : Window
     {
-        //ANIMARE LA PESCA
-        //SISTEMARE DAL SECONDO TURNO IN POI
-        //PULIRE LA TAVOLA BENE
-
-        //PULIZIA DEL CODICE (COMMENTI E REGIONI OVE NECESSARIO)
-        //ESISTE UN CASO IN CUI LA CPU RIMANE CON CARTA NULLA (GUARDARE IA)
-
         public Gioco(Giocatore giocatore, string tipoCarte, BitmapImage sfondo)
         {
             InitializeComponent();
