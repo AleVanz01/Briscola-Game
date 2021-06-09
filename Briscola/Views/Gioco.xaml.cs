@@ -1,4 +1,5 @@
 ﻿using Briscola.Models;
+using Briscola.Models.Enumeratori;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -17,13 +18,6 @@ namespace Briscola
     /// </summary>
     public partial class Gioco : Window
     {
-        //ANIMARE LA PESCA
-        //SISTEMARE DAL SECONDO TURNO IN POI
-        //PULIRE LA TAVOLA BENE
-
-        //PULIZIA DEL CODICE (COMMENTI E REGIONI OVE NECESSARIO)
-        //ESISTE UN CASO IN CUI LA CPU RIMANE CON CARTA NULLA (GUARDARE IA)
-
         public Gioco(Giocatore giocatore, string tipoCarte, BitmapImage sfondo)
         {
             InitializeComponent();
@@ -42,22 +36,22 @@ namespace Briscola
 
             //GIOCATORE 1 TEMPORANEO
             giocatore = new Giocatore("a", "a", "a", "a", "1");
-            partita = new Partita(2, giocatore, "trevisane");
+            partita = new Partita(2, giocatore, TipoCarta.Trevisana);
             txtG1.Text = giocatore.Username;
 
             //PREPARAZIONE DEL PRIMO TURNO
-            giocatore.MazzoGiocatore.Add(partita.Pesca(1));
-            giocatore.MazzoGiocatore.Add(partita.Pesca(2));
-            giocatore.MazzoGiocatore.Add(partita.Pesca(3));
-            partita.Giocatori[1].MazzoGiocatore.Add(partita.Pesca(4));
-            partita.Giocatori[1].MazzoGiocatore.Add(partita.Pesca(5));
-            partita.Giocatori[1].MazzoGiocatore.Add(partita.Pesca(6));
+            giocatore.MazzoGiocatore.Add(partita.Pesca());
+            giocatore.MazzoGiocatore.Add(partita.Pesca());
+            giocatore.MazzoGiocatore.Add(partita.Pesca());
+            partita.Giocatori[1].MazzoGiocatore.Add(partita.Pesca());
+            partita.Giocatori[1].MazzoGiocatore.Add(partita.Pesca());
+            partita.Giocatori[1].MazzoGiocatore.Add(partita.Pesca());
 
             cartePescate += 6;
             btnCarteRimaste.Text = (40 - cartePescate).ToString();
 
             CreaCarte();
-            LoadResources("Trevisane");
+            LoadResources(TipoCarta.Trevisana);
 
             //VARIABILE PER DIVERSIFICARE I CASI NEI VARI TURNI
             numeroTurno = 0;
@@ -157,17 +151,17 @@ namespace Briscola
         /// Carica le risorse per la partita
         /// </summary>
         /// <param name="tipoCarte"></param>
-        private void LoadResources(string tipoCarte)
+        private void LoadResources(TipoCarta tipoCarte)
         {
             string path;
-            gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
-            if (tipoCarte == "Trevisane")
+            gridMain.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\Sfondi\\Legno.png")));
+            if (tipoCarte == TipoCarta.Trevisana)
             {
-                path = Environment.CurrentDirectory + "\\Resources\\CarteTrevisane";
+                path = Environment.CurrentDirectory + "\\Immagini\\CarteTrevisane";
             }
             else
             {
-                path = Environment.CurrentDirectory + "\\Resources\\CarteNapoletane";
+                path = Environment.CurrentDirectory + "\\Immagini\\CarteNapoletane";
             }
 
             cartaMazzo.Background = new ImageBrush(new BitmapImage(new Uri(path + "\\Retro.png")));
@@ -447,7 +441,7 @@ namespace Briscola
             {
                 foreach (Giocatore g in partita.Giocatori)
                 {
-                    Carta c = partita.Pesca(39 - cartePescate);
+                    Carta c = partita.Pesca();
 
                     if (g.Username == giocatore.Username)
                     {
@@ -651,7 +645,7 @@ namespace Briscola
         /// </summary>
         public void GiocaTurno()
         {
-            if (partita.Mazzo.Count > 0)
+            if (partita.Mazzo.Count >= 0 && !partita.IsUltimoTurno)
             {
                 mazzoTavola.Clear();
 
@@ -682,7 +676,7 @@ namespace Briscola
                 btnPuntiG1.Text = giocatore.Punti.ToString();
                 btnPuntiCpu.Text = partita.Giocatori.Find(x => x.Username == Partita.CPU1).Punti.ToString();*/
             }
-            else
+            else //SE ULTIMO TURNO (mazzi carte vuoto e mazzi giocatori vuoti)
             {
                 partita.ConfrontaVincitore();
             }
