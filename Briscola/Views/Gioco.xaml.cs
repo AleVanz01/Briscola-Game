@@ -741,13 +741,13 @@ namespace Briscola
         }
 
         /// <summary>
-        /// Username > 10 caratteri => Diminuzione del font (per text block giocatore)
+        /// Username > 13 caratteri => Diminuzione del font (per text block giocatore)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TextBlock_Loaded(object sender, RoutedEventArgs e)
         {
-            if (txtG1.Text.Length > 10)
+            if (txtG1.Text.Length > 13)
             {
                 txtG1.FontSize = 33;
             }
