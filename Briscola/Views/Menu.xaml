@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Briscola"
+        xmlns:intr="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         x:Class="Briscola.Menu"
         mc:Ignorable="d"
@@ -51,8 +52,8 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
                     <Button Name="btnTwoPlayers"
-                            Click="btnTwoPlayers_Click"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Command="{Binding PartitaDueGiocatoriCommand}"
                             Height="Auto"
                             materialDesign:ButtonAssist.CornerRadius="35"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
@@ -66,8 +67,8 @@
                                    Foreground="#FF004D0B" />
                     </Button>
                     <Button Name="btnThreePlayers"
-                            Click="btnThreePlayers_Click"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Command="{Binding PartitaTreGiocatoriCommand}"
                             Height="Auto"
                             materialDesign:ButtonAssist.CornerRadius="35"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
@@ -81,10 +82,10 @@
                                    Foreground="#FF004D0B" />
                     </Button>
                     <Button Name="btnFourPlayers"
-                            Click="btnFourPlayers_Click"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Height="Auto"
                             Margin="10"
+                            IsEnabled="False"
                             materialDesign:ButtonAssist.CornerRadius="35"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             Background="LimeGreen"
@@ -225,6 +226,7 @@
                       Name="dgClassifica"
                       BorderBrush="Transparent"
                       Background="Transparent"
+                      ItemsSource="{Binding Giocatori,Mode=TwoWay}"
                       FontSize="15"
                       MinWidth="250"
                       ColumnWidth="*"
@@ -293,6 +295,7 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource MaterialDesignRaisedButton}"
+                    Command="{Binding EseguiLoginCommand}"
                     Foreground="#FF004D0B"
                     materialDesign:ButtonAssist.CornerRadius="10"
                     Width="Auto"
@@ -300,14 +303,12 @@
                     HorizontalAlignment="Center"
                     FontWeight="Bold"
                     FontSize="32"
-                    ToolTip="Resource name: MaterialDesignRaisedButton"
                     Background="LimeGreen"
                     BorderBrush="Green"
                     BorderThickness="3"
                     Content="Login"
                     Name="btnLogin"
-                    Margin="0,0,40,0"
-                    Click="btnLogin_Click" />
+                    Margin="0,0,40,0" />
             <Button Style="{StaticResource MaterialDesignRaisedButton}"
                     materialDesign:ButtonAssist.CornerRadius="10"
                     Background="LimeGreen"
@@ -319,10 +320,9 @@
                     MinHeight="50"
                     FontWeight="Bold"
                     FontSize="32"
-                    ToolTip="Resource name: MaterialDesignRaisedButton"
                     Content="Esci"
+                    Command="{Binding ChiudiCommand}"
                     Name="btnClose"
-                    Click="btnClose_Click"
                     Margin="0,0,40,0" />
         </StackPanel>
     </Grid>
