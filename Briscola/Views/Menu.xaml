@@ -53,6 +53,7 @@
                             HorizontalAlignment="Center">
                     <Button Name="btnTwoPlayers"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Command="{Binding PartitaDueGiocatoriCommand}"
                             Height="Auto"
                             materialDesign:ButtonAssist.CornerRadius="35"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
@@ -67,6 +68,7 @@
                     </Button>
                     <Button Name="btnThreePlayers"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Command="{Binding PartitaTreGiocatoriCommand}"
                             Height="Auto"
                             materialDesign:ButtonAssist.CornerRadius="35"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
@@ -83,6 +85,7 @@
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Height="Auto"
                             Margin="10"
+                            IsEnabled="False"
                             materialDesign:ButtonAssist.CornerRadius="35"
                             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                             Background="LimeGreen"
@@ -223,6 +226,7 @@
                       Name="dgClassifica"
                       BorderBrush="Transparent"
                       Background="Transparent"
+                      ItemsSource="{Binding Giocatori,Mode=TwoWay}"
                       FontSize="15"
                       MinWidth="250"
                       ColumnWidth="*"
@@ -291,6 +295,7 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource MaterialDesignRaisedButton}"
+                    Command="{Binding EseguiLoginCommand}"
                     Foreground="#FF004D0B"
                     materialDesign:ButtonAssist.CornerRadius="10"
                     Width="Auto"
@@ -298,7 +303,6 @@
                     HorizontalAlignment="Center"
                     FontWeight="Bold"
                     FontSize="32"
-                    ToolTip="Resource name: MaterialDesignRaisedButton"
                     Background="LimeGreen"
                     BorderBrush="Green"
                     BorderThickness="3"
@@ -316,8 +320,8 @@
                     MinHeight="50"
                     FontWeight="Bold"
                     FontSize="32"
-                    ToolTip="Resource name: MaterialDesignRaisedButton"
                     Content="Esci"
+                    Command="{Binding ChiudiCommand}"
                     Name="btnClose"
                     Margin="0,0,40,0" />
         </StackPanel>

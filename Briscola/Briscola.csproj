@@ -85,6 +85,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Models\Enumeratori\TipoCarta.cs" />
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\InfoGiocatore.cs" />
     <Compile Include="Models\RegistrazioneEventArgs.cs" />
     <Compile Include="Models\RelayCommand.cs" />
