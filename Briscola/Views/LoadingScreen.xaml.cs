@@ -16,22 +16,26 @@ namespace Briscola
             InitializeComponent();
             grid.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\Sfondi\\Legno.png")));
             txtUsername.Text = username != "" ? username : null;
-            //grid.Background = new ImageBrush(image);
+            grid.Background = new ImageBrush(image);
             gridScritta.Background = new ImageBrush(scritta);
-
+            Helper.RunTemporized(() => Caricamento(), TimeSpan.FromMilliseconds(1));
+            //timer = new DispatcherTimer();
             pgb.Minimum = 0;
             pgb.Maximum = 1000;
             pgb.Value = 0;
-
-            Helper.RunTemporized(() => Caricamento(), TimeSpan.FromMilliseconds(1));
+            //timer.IsEnabled = true;
+            //timer.Interval = TimeSpan.FromMilliseconds(1);
+            //timer.Tick += timer_Tick;
+            //timer.Start();
         }
+
+        //private readonly DispatcherTimer timer;
 
         public double Progress { get => pgb.Value; set => pgb.Value = value; }
 
         private void Caricamento()
         {
             pgb.Value += 10;
-
             if (pgb.Value == pgb.Maximum)
             {
                 Close();
