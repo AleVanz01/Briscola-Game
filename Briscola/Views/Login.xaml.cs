@@ -1,7 +1,6 @@
 ﻿using Briscola.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.OleDb;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,9 +16,11 @@ namespace Briscola
     {
         private readonly LoginViewModel _loginViewModel;
 
-        public Login(OleDbConnection connection)
+        public Login(LoginViewModel loginViewModel)
         {
-            _loginViewModel = new LoginViewModel(connection);
+            InitializeComponent();
+
+            _loginViewModel = loginViewModel;
             _loginViewModel.OnClosing += (send, ev) => Close();
             _loginViewModel.OnRegistrazioneRichiesta += _loginViewModel_OnRegistrazioneRichiesta;
 
@@ -80,7 +81,7 @@ namespace Briscola
 
         private Control CreaControllo(Type tipo, string testo)
         {
-            if (tipo.GetType() == typeof(TextBox))
+            if (tipo == typeof(TextBox))
             {
                 TextBox t;
                 StringBuilder builder = new StringBuilder();
@@ -105,7 +106,7 @@ namespace Briscola
 
                 return t;
             }
-            else if (tipo.GetType() == typeof(ComboBox))
+            else if (tipo == typeof(ComboBox))
             {
                 List<int> rangeEta = new List<int>();
                 for (int i = 0; i < 99; i++)

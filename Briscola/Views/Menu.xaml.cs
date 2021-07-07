@@ -17,10 +17,12 @@ namespace Briscola
 
             _menuViewModel = new MenuViewModel();
             _menuViewModel.OnHide += Nascondi;
+            _menuViewModel.OnShow += Mostra;
             DataContext = _menuViewModel;
-            //Hide();
         }
 
         private void Nascondi(object sender, EventArgs e) => Hide();
+
+        private void Mostra(object sender, EventArgs e) => Show();
     }
 }

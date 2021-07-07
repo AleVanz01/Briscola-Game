@@ -24,9 +24,10 @@ namespace Briscola.ViewModels
         public MenuViewModel()
         {
             _connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + Environment.CurrentDirectory + "\\Briscola.accdb");
-            ImgSfondo = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            ImgSfondo = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno2.jpg")));
             WindowLoadedCommand = new RelayCommand(UpdateClassifica);
             IsPulsantiAbilitati = false;
+            TipoLogin = "Login";
         }
 
         public ICommand EseguiLoginCommand => new RelayCommand(ApriLogin);
@@ -40,8 +41,7 @@ namespace Briscola.ViewModels
         public ICommand ChiudiCommand => new RelayCommand(Chiudi);
 
         public event EventHandler OnHide;
-
-        public event EventHandler OnClose;
+        public event EventHandler OnShow;
 
         public ImageBrush ImgSfondo
         {
@@ -107,29 +107,30 @@ namespace Briscola.ViewModels
         {
             if (TipoLogin == "Login")
             {
-                //Login login = null;
-                //bool registrato = true;
-                //while (registrato)
-                //{
-                //    login = new Login(_connection);
-                //    if (login.ShowDialog() == true)
-                //    {
-                //        registrato = login.Registrazione;
-                //    }
-                //    else
-                //    {
-                //        registrato = false;
-                //    }
-                //}
-                //if (login.Loggato)
-                //{
-                //    Giocatore = login.Giocatore;
-                //    ImgProfilo = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\utente.png")));
-                //    UpdatePlayerData();
-                //    UpdateClassifica(null);
-                //    TipoLogin = "Logout";
-                //    IsPulsantiAbilitati = true;
-                //}
+                var loginViewModel = new LoginViewModel(_connection);
+                Login login = null;
+                bool registrato = true;
+                while (registrato)
+                {
+                    login = new Login(loginViewModel);
+                    if (login.ShowDialog() == true)
+                    {
+                        registrato = loginViewModel.Registrazione;
+                    }
+                    else
+                    {
+                        registrato = false;
+                    }
+                }
+                if (loginViewModel.IsLoggato)
+                {
+                    Giocatore = loginViewModel.Giocatore;
+                    ImgProfilo = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\utente.png")));
+                    UpdatePlayerData();
+                    UpdateClassifica(null);
+                    TipoLogin = "Logout";
+                    IsPulsantiAbilitati = true;
+                }
             }
             else
             {
@@ -156,7 +157,7 @@ namespace Briscola.ViewModels
         private void PartitaDueGiocatori(object p)
         {
             OnHide(null, null);
-            Gioco partita = new Gioco(Giocatore, "", new BitmapImage());
+            Gioco partita = new Gioco(Giocatore, "", new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")));
 
             partita.Show();
         }
@@ -167,7 +168,7 @@ namespace Briscola.ViewModels
 
             LoadingScreen load = new LoadingScreen(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")), Giocatore?.Username ?? "--", new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ScrittaBriscola.png")));
             load.ShowDialog();
-            //Show();
+            OnShow(null, null);
             //Gioco partita = new Gioco(3, giocatore);
         }
 
