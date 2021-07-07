@@ -23,14 +23,16 @@
         </Grid>
         <ProgressBar Name="pgb"
                      VerticalAlignment="Bottom"
-                     Margin="0,0,0,50"
-                     Width="1100"
+                     Margin="30,0,30,50"
                      Height="30"
                      Background="Transparent"
                      Foreground="ForestGreen"
                      BorderBrush="Transparent"
                      ToolTip="TextBlock" />
         <TextBlock TextAlignment="Right"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right"
+                   Margin="0,20,20,0"
                    Name="txtUsername"
                    Width="545"
                    Height="88"

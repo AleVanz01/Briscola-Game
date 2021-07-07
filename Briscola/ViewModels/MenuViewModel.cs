@@ -165,7 +165,7 @@ namespace Briscola.ViewModels
         {
             OnHide(null, null);
 
-            LoadingScreen load = new LoadingScreen(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")), Giocatore.Username, new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ScrittaBriscola.png")));
+            LoadingScreen load = new LoadingScreen(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")), Giocatore?.Username ?? "--", new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ScrittaBriscola.png")));
             load.ShowDialog();
             //Show();
             //Gioco partita = new Gioco(3, giocatore);

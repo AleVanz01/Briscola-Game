@@ -18,7 +18,7 @@ namespace Briscola
             txtUsername.Text = username != "" ? username : null;
             grid.Background = new ImageBrush(image);
             gridScritta.Background = new ImageBrush(scritta);
-            Helper.RunTemporized(() => Caricamento(), TimeSpan.FromSeconds(30));
+            Helper.RunTemporized(() => Caricamento(), TimeSpan.FromMilliseconds(1));
             //timer = new DispatcherTimer();
             pgb.Minimum = 0;
             pgb.Maximum = 1000;
