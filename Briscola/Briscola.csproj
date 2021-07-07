@@ -84,6 +84,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Models\Enumeratori\TipoCarta.cs" />
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\TwoPlayers.cs" />

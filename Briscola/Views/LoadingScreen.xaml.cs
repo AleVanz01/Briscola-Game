@@ -14,7 +14,7 @@ namespace Briscola
         public LoadingScreen(BitmapImage image, string username = "", BitmapImage scritta = null)
         {
             InitializeComponent();
-            grid.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno.png")));
+            grid.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Immagini\\Sfondi\\Legno.png")));
             txtUsername.Text = username != "" ? username : null;
             grid.Background = new ImageBrush(image);
             gridScritta.Background = new ImageBrush(scritta);
