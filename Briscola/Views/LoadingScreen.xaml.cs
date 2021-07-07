@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Briscola.Models;
+using System;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Threading;
 
 namespace Briscola
 {
@@ -18,27 +18,26 @@ namespace Briscola
             txtUsername.Text = username != "" ? username : null;
             grid.Background = new ImageBrush(image);
             gridScritta.Background = new ImageBrush(scritta);
-            timer = new DispatcherTimer();
+            Helper.RunTemporized(() => Caricamento(), TimeSpan.FromSeconds(30));
+            //timer = new DispatcherTimer();
             pgb.Minimum = 0;
             pgb.Maximum = 1000;
             pgb.Value = 0;
-            timer.IsEnabled = true;
-            timer.Interval = TimeSpan.FromMilliseconds(1);
-            timer.Tick += timer_Tick;
-            timer.Start();
+            //timer.IsEnabled = true;
+            //timer.Interval = TimeSpan.FromMilliseconds(1);
+            //timer.Tick += timer_Tick;
+            //timer.Start();
         }
 
-        private readonly DispatcherTimer timer;
+        //private readonly DispatcherTimer timer;
 
         public double Progress { get => pgb.Value; set => pgb.Value = value; }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Caricamento()
         {
             pgb.Value += 10;
             if (pgb.Value == pgb.Maximum)
             {
-                timer.Stop();
-                timer.IsEnabled = false;
                 Close();
             }
         }
