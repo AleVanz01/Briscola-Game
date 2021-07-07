@@ -15,7 +15,8 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
 
-    <Grid Name="gridMain">
+    <Grid Name="gridMain"
+          Background="{Binding ImgSfondo}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
