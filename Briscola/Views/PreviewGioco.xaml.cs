@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Briscola.Models.Enumeratori;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -20,7 +21,7 @@ namespace Briscola
             btnTappetoLegno.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\Legno2.jpg")));
             btnTappetoRosso.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")));
             btnTappetoVerde.Background = new ImageBrush(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoAqua.jpg")));
-            //this.Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ICONA GIOCO 2.ico"));
+            this.Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ICONA GIOCO 2.ico"));
 
             obj = bdg_TappetoVerde.Badge;
             objCarta = bdg_CarteTrevisane.Badge;
@@ -31,12 +32,12 @@ namespace Briscola
 
         private readonly object obj;
         private readonly object objCarta;
-        public string TipoCarte { get; private set; }
+
+        public TipoCarta TipoCarte { get; private set; }
+
         public string TipoSfondo { get; private set; }
-        private void btnContinua_Click(object sender, RoutedEventArgs e)
-        {
-            //DialogResult = true;
-        }
+
+        private void btnContinua_Click(object sender, RoutedEventArgs e) => DialogResult = true;
 
         private void btnCarteTrevisane_Click(object sender, RoutedEventArgs e)
         {
@@ -46,13 +47,13 @@ namespace Briscola
             {
                 bdg_CarteTrevisane.Badge = objCarta;
                 bdg_CarteNapoletane.Badge = null;
-                TipoCarte = "Trevisane";
+                TipoCarte = TipoCarta.Trevisana;
             }
             else
             {
                 bdg_CarteTrevisane.Badge = null;
                 bdg_CarteNapoletane.Badge = objCarta;
-                TipoCarte = "Napoletane";
+                TipoCarte = TipoCarta.Napoletana;
             }
 
         }

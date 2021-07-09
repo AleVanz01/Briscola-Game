@@ -157,9 +157,18 @@ namespace Briscola.ViewModels
         private void PartitaDueGiocatori(object p)
         {
             OnHide(null, null);
-            Gioco partita = new Gioco(Giocatore, "", new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")));
+            PreviewGioco previewGioco = new PreviewGioco();
 
-            partita.Show();
+            if (previewGioco.ShowDialog().Value)
+            {
+                LoadingScreen load = new LoadingScreen(new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\TappetinoRosso.jpg")), Giocatore?.Username ?? "Alessandro", new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Resources\\Sfondi\\ScrittaBriscola.png")));
+                GiocoDueGiocatoriViewModel viewModel = new GiocoDueGiocatoriViewModel(Giocatore, previewGioco.TipoCarte, new BitmapImage(new Uri(Environment.CurrentDirectory + $"\\Resources\\Sfondi\\{previewGioco.TipoSfondo}")));
+                Gioco partita = new Gioco(viewModel);
+                load.ShowDialog();
+                partita.Show();
+            }
+            OnShow(null, null);
+
         }
 
         private void PartitaTreGiocatori(object p)

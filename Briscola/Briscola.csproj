@@ -90,9 +90,9 @@
     <Compile Include="Models\InfoGiocatore.cs" />
     <Compile Include="Models\RegistrazioneEventArgs.cs" />
     <Compile Include="Models\RelayCommand.cs" />
+    <Compile Include="ViewModels\GiocoDueGiocatoriViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
-    <Compile Include="ViewModels\TwoPlayers.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

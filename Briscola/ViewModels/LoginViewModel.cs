@@ -43,6 +43,10 @@ namespace Briscola.ViewModels
                 reader.Close();
                 File.Delete(Environment.CurrentDirectory + "\\Login.txt");
             }
+
+            Operazione = "Login";
+            Giocatore = new Giocatore();
+
         }
 
         public ICommand ChiudiCommand => new RelayCommand((param) => OnClosing(null, null));
@@ -126,7 +130,7 @@ namespace Briscola.ViewModels
                 {
                     if (Operazione == "Login")
                     {
-                        if (CheckLogin(Giocatore?.Username, Giocatore?.Password, out string errore))
+                        if (CheckLogin(Giocatore?.Username, Giocatore?.Password ?? "345", out string errore))
                         {
                             MsgBox.Show("Accesso Eseguito", MessageBoxType.Information);
                             if (IsRicordamiAbilitato == true)
@@ -172,8 +176,6 @@ namespace Briscola.ViewModels
 
         public void EseguiRegistrazione(object p)
         {
-            OnRegistrazioneRichiesta(null, null);
-
             Operazione = "Registrati";
             PanelLoginWidth += 30;
             PanelRegistrazione = Visibility.Collapsed;
@@ -181,6 +183,8 @@ namespace Briscola.ViewModels
             GridWidth += 50;
             WindowHeight += 230;
             WindowTop -= 150;
+
+            OnRegistrazioneRichiesta(null, null);
         }
 
         private bool CheckLogin(string username, string psw, out string errore)

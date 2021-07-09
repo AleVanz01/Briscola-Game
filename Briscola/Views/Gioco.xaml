@@ -14,30 +14,32 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Background="{Binding Sfondo}"
+        Loaded="Window_Loaded">
 
     <Grid Name="gridMain">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Button x:Name="gbCpu"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                IsEnabled="{Binding IsTurnoCpu}"
                 Grid.Row="0"
                 Grid.Column="0"
                 Height="144"
                 VerticalAlignment="Top"
                 Margin="0,50,0,0"
                 materialDesign:ButtonAssist.CornerRadius="30"
-                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                 Background="#FFC3FBC3"
                 BorderBrush="Green"
                 BorderThickness="8"
@@ -53,19 +55,19 @@
 
         <Button x:Name="gbGiocatore1"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                IsEnabled="{Binding IsTurnoG1}"
                 Grid.Row="3"
                 Grid.Column="0"
                 Height="144"
                 VerticalAlignment="Bottom"
                 Margin="0,0,0,50"
                 materialDesign:ButtonAssist.CornerRadius="30"
-                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                 Background="#FFC3FBC3"
                 BorderBrush="Green"
                 BorderThickness="8"
                 Width="316">
             <TextBlock Name="txtG1"
-                       Text="Giocatore 1"
+                       Text="{Binding Giocatore.Username, FallbackValue=Giocatore 1}"
                        FontWeight="ExtraBold"
                        FontSize="45"
                        Foreground="Black"
@@ -74,6 +76,9 @@
         </Button>
 
         <Button Name="CartaBriscola"
+                Background="{Binding CartaBriscola}"
+                Visibility="{Binding IsUltimoTurno, Converter={StaticResource InverseBoolToVisConverter}}"
+                IsHitTestVisible="False"
                 Grid.Column="0"
                 Grid.Row="1"
                 Grid.RowSpan="2"
@@ -93,6 +98,8 @@
             </Button.RenderTransform>
         </Button>
         <Button Name="cartaMazzo"
+                Background="{Binding RetroCartaMazzo}"
+                Visibility="{Binding IsCartaMazzoVisibile, Converter={StaticResource BooleanToVisibilityConverter}}"
                 Grid.Column="0"
                 Grid.Row="1"
                 Grid.RowSpan="2"
@@ -104,12 +111,12 @@
                     BorderBrush="DarkGreen"
                     Background="LimeGreen"
                     Grid.Column="1"
+                    Visibility="{Binding IsCartaMazzoVisibile, Converter={StaticResource BooleanToVisibilityConverter}}"
                     Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
-                    ToolTip="MaterialDesignFloatingActionAccentButton"
                     Width="100"
                     Height="100">
                 <TextBlock Name="btnCarteRimaste"
-                           Text="100"
+                           Text="{Binding CarteRimaste}"
                            FontWeight="DemiBold"
                            FontSize="40"
                            TextAlignment="Center"
@@ -124,6 +131,8 @@
         <Button Name="Carta3" Width="170" Height="360" Canvas.Left="1353" Canvas.Top="666" BorderThickness="0" Click="btnCarta1_Click"/>-->
         <Button x:Name="btnGioca"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Visibility="{Binding CanPlayerPlay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Command="{Binding PescaGiocaCommand}"
                 Grid.Column="1"
                 Grid.Row="3"
                 HorizontalAlignment="Left"
@@ -131,14 +140,12 @@
                 Margin="15,30,0,0"
                 Height="96"
                 materialDesign:ButtonAssist.CornerRadius="40"
-                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                 Background="LimeGreen"
                 BorderBrush="Green"
                 BorderThickness="3"
-                Width="224"
-                Click="btnGioca_Click">
+                Width="224">
             <TextBlock Name="txtGioca"
-                       Text="GIOCA"
+                       Text="{Binding PescaGioca, FallbackValue=Gioca}"
                        FontWeight="ExtraBold"
                        FontSize="45"
                        Foreground="#FF004D0B" />
@@ -148,6 +155,7 @@
         <Button Name="CartaEnemy3" Width="170" Height="180" Canvas.Left="1353" Canvas.Top="0" BorderThickness="0"/>-->
 
         <Button Name="CartePunti"
+                Background="{Binding RetroCartePiccolo}"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Margin="0,0,120,20"
@@ -157,7 +165,7 @@
                 Height="200"
                 BorderThickness="0"
                 RenderTransformOrigin="0.5,0.5"
-                Click="CartePunti_Click">
+                Command="{Binding VisCartePuntiCommand}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <RotateTransform Angle="90" />
@@ -171,7 +179,7 @@
                      Width="70"
                      Height="70">
                 <TextBlock Name="btnPuntiG1"
-                           Text="0"
+                           Text="{Binding Giocatore.Punti, FallbackValue=0}"
                            FontWeight="DemiBold"
                            FontSize="35"
                            TextAlignment="Center"
@@ -187,6 +195,8 @@
             </Button>
         </Button>
         <Button Name="CartePuntiEnemy"
+                Background="{Binding RetroCartePiccolo}"
+                IsHitTestVisible="False"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0,20,120,0"
@@ -210,7 +220,7 @@
                      Width="70"
                      Height="70">
                 <TextBlock Name="btnPuntiCpu"
-                           Text="0"
+                           Text="{Binding PuntiCpu, FallbackValue=0}"
                            FontWeight="DemiBold"
                            FontSize="35"
                            TextAlignment="Center"
@@ -226,7 +236,8 @@
             </Button>
         </Button>
         <Button Background="Transparent"
-                Click="cnvTavola_Click"
+                Opacity="{Binding OpacitaTavola}"
+                Command="{Binding PulisciTavolaCommand}"
                 BorderThickness="0"
                 HorizontalAlignment="Right"
                 Name="cnvTavola"

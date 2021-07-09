@@ -16,7 +16,7 @@
         WindowState="Maximized">
 
     <Grid Name="gridMain"
-          Background="{Binding ImgSfondo}">
+          Background="{Binding ImgSfondo, FallbackValue=YellowGreen}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -231,6 +231,7 @@
                       FontSize="15"
                       MinWidth="250"
                       ColumnWidth="*"
+                      AutoGenerateColumns="False"
                       HorizontalAlignment="Center"
                       VerticalGridLinesBrush="GreenYellow"
                       HorizontalGridLinesBrush="GreenYellow"

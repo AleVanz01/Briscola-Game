@@ -25,6 +25,8 @@ namespace Briscola
             _loginViewModel.OnRegistrazioneRichiesta += _loginViewModel_OnRegistrazioneRichiesta;
 
             DataContext = _loginViewModel;
+
+            _loginViewModel.WindowHeight = 300;
         }
 
         private void _loginViewModel_OnRegistrazioneRichiesta(object sender, EventArgs e)
