@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:Briscola"
         mc:Ignorable="d"
         Title="Login"
-        Height="530"
+        Height="{Binding WindowHeight}"
+        Top="{Binding WindowTop}"
         Width="300"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -29,9 +30,7 @@
                 Height="30"
                 Width="31"
                 Name="btnChiudi"
-                Command="{Binding ChiudiCommand}"
-                Canvas.Left="5"
-                Canvas.Top="5">
+                Command="{Binding ChiudiCommand}"   >
             <materialDesign:PackIcon Kind="ArrowBack"
                                      Height="24"
                                      Width="24" />
@@ -40,7 +39,7 @@
         <Grid Grid.Row="1"
               Width="300"
               Name="grid">
-            <StackPanel Name="stp" Height="390">
+            <StackPanel Name="stp" Height="auto">
                 <Border Name="border"
                         VerticalAlignment="Center"
                         Background="WhiteSmoke"
@@ -64,6 +63,7 @@
                                              TextWrapping="Wrap"
                                              VerticalScrollBarVisibility="Auto"
                                              LostFocus="txtUsername_LostFocus"
+                                             Text="{Binding Giocatore.Username}"
                                              MaxLength="15">
 
                                         <materialDesign:HintAssist.Hint>
@@ -125,6 +125,7 @@
                         </StackPanel>
                         <StackPanel Name="stpRegistra"
                                     Orientation="Horizontal"
+                                    Visibility="{Binding PanelRegistrazione}"
                                     HorizontalAlignment="Center">
                             <Label Content="Non sei ancora registrato?"
                                    Margin="0 2 0 0"

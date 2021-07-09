@@ -10,8 +10,6 @@
         MinWidth="850"
         Icon="/Legno2.jpg"
         MinHeight="650"
-        Height="770"
-        Width="1280"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
     
